@@ -37,6 +37,8 @@ set secure
 syntax on
 " Make tabs as wide as two spaces
 set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 " Enable line numbers
 set number
 " Highlight searches
