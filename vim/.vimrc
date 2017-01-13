@@ -2,6 +2,7 @@
 call plug#begin('~/.vim/plugged')
 " Install vim-go plugin
 Plug 'fatih/vim-go'
+Plug 'ctrlpvim/ctrlp.vim'
 " End plugin section
 call plug#end()
 
