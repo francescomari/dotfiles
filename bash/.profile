@@ -24,3 +24,7 @@ function jdk() {
     export PATH=$JAVA_HOME/bin:$PATH
   fi
 }
+
+# Maven aliases
+alias mci="mvn clean install -DskipTests"
+alias mcti="mvn clean install"
