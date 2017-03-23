@@ -7,6 +7,8 @@ Plug 'Shougo/neocomplete.vim'
 " End plugin section
 call plug#end()
 
+" Use custom color scheme
+colorscheme molokai
 " Make Vim more useful
 set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
