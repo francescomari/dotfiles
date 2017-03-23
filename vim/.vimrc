@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 " Install vim-go plugin
 Plug 'fatih/vim-go'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Shougo/neocomplete.vim'
 " End plugin section
 call plug#end()
 
