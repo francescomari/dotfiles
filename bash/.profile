@@ -9,7 +9,7 @@ export BIN="$HOME/bin"
 # Go
 export GOPATH="$HOME/go"
 export GOROOT="/usr/local/opt/go/libexec"
-export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
 
 # Java
 export JAVA_HOME=$(/usr/libexec/java_home)
