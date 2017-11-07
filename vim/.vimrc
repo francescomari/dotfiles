@@ -24,8 +24,7 @@ set gdefault
 " Use UTF-8 without BOM
 set encoding=utf-8 nobomb
 " Don’t add empty newlines at the end of files
-set binary
-set noeol
+set nofixendofline
 
 set viminfo+=! " make sure vim history works
 map <C-J> <C-W>j<C-W>_ " open and maximize the split below
