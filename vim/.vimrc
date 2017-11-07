@@ -25,6 +25,8 @@ set gdefault
 set encoding=utf-8 nobomb
 " Don’t add empty newlines at the end of files
 set nofixendofline
+" Never add an empty newlilne at the end of a SVN commit message
+autocmd FileType svn set noendofline
 
 set viminfo+=! " make sure vim history works
 map <C-J> <C-W>j<C-W>_ " open and maximize the split below
