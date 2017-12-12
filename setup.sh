@@ -1,29 +1,27 @@
 #!/usr/bin/env bash
 
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+if [ ! -x `command -v brew` ]; then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
 
-brew install \
-    go \
-    git \
-    maven \
-    stow \
-    subversion \
-    vim
+brew cask install alfred
+brew cask install intellij-idea-ce
+brew cask install java
+brew cask install slack
+brew cask install spotify
+brew cask install visual-studio-code
+brew cask install whatsapp
+brew cask install daisydisk
 
-brew cask install \
-    google-chrome \
-    alfred \
-    intellij-idea-ce \
-    java \
-    slack \
-    spotify \
-    visual-studio-code \
-    whatsapp
+brew install go
+brew install git
+brew install maven
+brew install stow
+brew install subversion
+brew install vim
 
-stow \
-    bash \
-    git \
-    gvim \
-    subversion \
-    vim
-    
+stow bash
+stow git
+stow gvim
+stow subversion
+stow vim
