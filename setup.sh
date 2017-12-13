@@ -19,6 +19,7 @@ brew install maven
 brew install stow
 brew install subversion
 brew install vim
+brew install colordiff
 
 stow bash
 stow git
