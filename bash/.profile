@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Default locale
+export LC_ALL="en_US"
+
 # Default editor
 export EDITOR="vim"
 
