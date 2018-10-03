@@ -38,6 +38,8 @@ set exrc
 set secure
 " Enable syntax highlighting
 syntax on
+" Enable autoindent
+set autoindent
 " Make tabs as wide as two spaces
 set tabstop=4
 set softtabstop=4
