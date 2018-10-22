@@ -12,9 +12,6 @@ export BIN="$HOME/bin"
 # Go
 export PATH="$PATH:$HOME/go/bin"
 
-# Java
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-
 # Generic executables
 export PATH="$BIN:$PATH"
 
