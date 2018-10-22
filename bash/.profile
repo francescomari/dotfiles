@@ -10,9 +10,7 @@ export EDITOR="vim"
 export BIN="$HOME/bin"
 
 # Go
-export GOPATH="$HOME/go"
-export GOROOT="/usr/local/opt/go/libexec"
-export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
+export PATH="$PATH:$HOME/go/bin"
 
 # Java
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
