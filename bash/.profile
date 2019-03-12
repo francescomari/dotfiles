@@ -12,6 +12,9 @@ export BIN="$HOME/bin"
 # Go
 export PATH="$PATH:$HOME/go/bin"
 
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # Generic executables
 export PATH="$BIN:$PATH"
 
