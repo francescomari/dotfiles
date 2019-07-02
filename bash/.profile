@@ -21,3 +21,4 @@ export PATH="$BIN:$PATH"
 # Maven aliases
 alias mci="mvn clean install -DskipTests"
 alias mcti="mvn clean install"
+alias k="kubectl"
