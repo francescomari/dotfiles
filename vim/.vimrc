@@ -9,6 +9,8 @@ Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 " ctrlp
 Plug 'ctrlpvim/ctrlp.vim'
+" NERD tree
+Plug 'scrooloose/nerdtree'
 " End plugin section
 call plug#end()
 
@@ -17,6 +19,9 @@ let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('omni_patterns', {
 \ 'go': '[^. *\t]\.\w*',
 \})
+
+" Open NERD tree
+nmap <C-F> :NERDTreeToggle<CR>
 
 " Disable preview when autocompleting
 set completeopt-=preview
