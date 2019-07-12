@@ -1,12 +1,25 @@
 " Start plugin section
 call plug#begin('~/.vim/plugged')
-" Install vim-go plugin
+" vim-go
 Plug 'fatih/vim-go'
+" Deoplete and required dependencies. It requires `pip3 install pynvim` on
+" first install.
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+" ctrlp
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Shougo/neocomplete.vim'
 " End plugin section
 call plug#end()
 
+" Deoplete configuration
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('omni_patterns', {
+\ 'go': '[^. *\t]\.\w*',
+\})
+
+" Disable preview when autocompleting
+set completeopt-=preview
 " Make Vim more useful
 set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
