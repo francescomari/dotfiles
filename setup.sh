@@ -17,6 +17,7 @@ brew cask install daisydisk
 brew cask install skype
 brew cask install spectacle
 brew cask install macvim
+brew cask install iterm2
 
 brew install go
 brew install git
