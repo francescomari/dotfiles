@@ -1,34 +1,49 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-if [ ! -x `command -v brew` ]; then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
+# Install Brew
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+# Install Oh My ZSH!
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-brew cask install alfred
-brew cask install intellij-idea-ce
-brew cask install java
-brew cask install slack
-brew cask install spotify
-brew cask install visual-studio-code
-brew cask install whatsapp
-brew cask install daisydisk
-brew cask install skype
-brew cask install spectacle
-brew cask install macvim
-brew cask install iterm2
+# Install Brew casks
+for i in \
+    alfred \
+    intellij-idea-ce \
+    java \
+    slack \
+    spotify \
+    visual-studio-code \
+    whatsapp \
+    daisydisk \
+    skype \
+    spectacle \
+    macvim \
+    iterm2
+do
+    brew cask install $i
+done
 
-brew install go
-brew install git
-brew install maven
-brew install stow
-brew install subversion
-brew install vim
-brew install colordiff
+# Brew pacakges
+for i in \
+    go \
+    git \
+    maven \
+    stow \
+    subversion \
+    vim \
+    colordiff
+do
+    brew install $i
+done
 
-stow sh
-stow git
-stow gvim
-stow subversion
-stow vim
+# Configuration files
+for i in \
+    sh \
+    git \
+    gvim \
+    subversion \
+    vim
+do
+    stow $i
+done
