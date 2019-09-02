@@ -24,7 +24,7 @@ brew install subversion
 brew install vim
 brew install colordiff
 
-stow bash
+stow sh
 stow git
 stow gvim
 stow subversion
