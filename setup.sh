@@ -4,6 +4,8 @@ if [ ! -x `command -v brew` ]; then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 brew cask install alfred
 brew cask install intellij-idea-ce
 brew cask install java
