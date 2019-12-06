@@ -2,23 +2,12 @@
 call plug#begin('~/.vim/plugged')
 " vim-go
 Plug 'fatih/vim-go'
-" Deoplete and required dependencies. It requires `pip3 install pynvim` on
-" first install.
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
 " ctrlp
 Plug 'ctrlpvim/ctrlp.vim'
 " NERD tree
 Plug 'scrooloose/nerdtree'
 " End plugin section
 call plug#end()
-
-" Deoplete configuration
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('omni_patterns', {
-\ 'go': '[^. *\t]\.\w*',
-\})
 
 " Open NERD tree
 nmap <C-F> :NERDTreeToggle<CR>
