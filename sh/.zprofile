@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# Default locale
-export LC_ALL="en_US"
-
 # Default editor
 export EDITOR="vim"
 
@@ -22,3 +19,4 @@ export PATH="$BIN:$PATH"
 alias mci="mvn clean install -DskipTests"
 alias mcti="mvn clean install"
 alias k="kubectl"
+alias kc="kubectx"
