@@ -1,4 +1,6 @@
-#!/bin/sh
+# Locale
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Default editor
 export EDITOR="vim"
@@ -18,5 +20,7 @@ export PATH="$BIN:$PATH"
 # Maven aliases
 alias mci="mvn clean install -DskipTests"
 alias mcti="mvn clean install"
+
+# Kubernetes aliases
 alias k="kubectl"
 alias kc="kubectx"
