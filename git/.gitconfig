@@ -9,3 +9,5 @@
 	followRedirects = true
 [color]
 	ui = auto
+[pull]
+	rebase = true
