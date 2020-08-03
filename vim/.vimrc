@@ -13,6 +13,10 @@ Plug 'scrooloose/nerdtree'
 " End plugin section
 call plug#end()
 
+" Quickfix shortcuts
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+
 " Open NERD tree
 nmap <C-F> :NERDTreeToggle<CR>
 
@@ -22,10 +26,28 @@ let g:deoplete#enable_at_startup = 1
 " Hook vim-go into deoplete
 call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 
-" Use gopls in vim-go
+" vim-go configuration
+"
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
+let g:go_fmt_command = "goimports"
 
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+
+" Automatically save the file on :make
+set autowrite
 " Disable preview when autocompleting
 set completeopt-=preview
 " Make Vim more useful
@@ -100,3 +122,4 @@ set showcmd
 
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
+
