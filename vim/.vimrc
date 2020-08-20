@@ -2,10 +2,6 @@
 call plug#begin('~/.vim/plugged')
 " vim-go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" deoplete
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
 " ctrlp
 Plug 'ctrlpvim/ctrlp.vim'
 " NERD tree
@@ -20,14 +16,7 @@ map <C-m> :cprevious<CR>
 " Open NERD tree
 nmap <C-F> :NERDTreeToggle<CR>
 
-" Enable deoplete
-let g:deoplete#enable_at_startup = 1
-
-" Hook vim-go into deoplete
-call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
-
 " vim-go configuration
-"
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_fmt_command = "goimports"

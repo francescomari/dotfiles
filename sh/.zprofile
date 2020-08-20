@@ -24,3 +24,5 @@ alias mcti="mvn clean install"
 # Kubernetes aliases
 alias k="kubectl"
 alias kc="kubectx"
+
+export GOPRIVATE="git.corp.adobe.com,github.com/adobe,github.com/adobe-private"
