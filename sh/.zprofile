@@ -25,4 +25,7 @@ alias mcti="mvn clean install"
 alias k="kubectl"
 alias kc="kubectx"
 
+# Additional Kuberentes configuration files
+export KUBECONFIG="${HOME}/.kube/config:${HOME}/src/k8s-kubeconfig/kubeconfig.yaml"
+
 export GOPRIVATE="git.corp.adobe.com,github.com/adobe,github.com/adobe-private"
