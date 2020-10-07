@@ -28,4 +28,16 @@ alias kc="kubectx"
 # Additional Kuberentes configuration files
 export KUBECONFIG="${HOME}/.kube/config:${HOME}/src/k8s-kubeconfig/kubeconfig.yaml"
 
+# NVM
+export NVM_DIR="$HOME/.nvm"
+
+# Load nvm lazily because it drags on the startup of the shell.
+nvm() {
+    if [ -s "$NVM_DIR/nvm.sh" ]; then
+        unset -f nvm
+        source "$NVM_DIR/nvm.sh"
+    fi
+    nvm "$@"
+}
+
 export GOPRIVATE="git.corp.adobe.com,github.com/adobe,github.com/adobe-private"
