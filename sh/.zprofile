@@ -24,6 +24,7 @@ alias mcti="mvn clean install"
 # Kubernetes aliases
 alias k="kubectl"
 alias kc="kubectx"
+alias kn="kubens"
 
 # Additional Kuberentes configuration files
 export KUBECONFIG="${HOME}/.kube/config:${HOME}/src/k8s-kubeconfig/kubeconfig.yaml"
