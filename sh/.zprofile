@@ -8,6 +8,9 @@ export EDITOR="vim"
 # Binary folder
 export BIN="$HOME/bin"
 
+# Brew installs some executables in /usr/local/sbin
+export PATH="/usr/local/sbin:$PATH"
+
 # Go
 export PATH="$PATH:$HOME/go/bin"
 
