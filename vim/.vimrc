@@ -1,12 +1,8 @@
 " Start plugin section
 call plug#begin('~/.vim/plugged')
-" vim-go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" ctrlp
-Plug 'ctrlpvim/ctrlp.vim'
-" NERD tree
 Plug 'scrooloose/nerdtree'
-" End plugin section
+Plug 'preservim/nerdcommenter'
 call plug#end()
 
 " Quickfix shortcuts
@@ -34,6 +30,10 @@ autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <leader>t <Plug>(go-test)
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+
+" NERD Commenter configuration
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
 
 " Automatically save the file on :make
 set autowrite
