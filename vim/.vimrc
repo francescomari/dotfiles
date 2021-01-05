@@ -16,6 +16,7 @@ nmap <C-F> :NERDTreeToggle<CR>
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_fmt_command = "goimports"
+let g:go_code_completion_icase=1
 
 function! s:build_go_files()
   let l:file = expand('%')
@@ -30,6 +31,7 @@ autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <leader>t <Plug>(go-test)
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go imap . .<C-X><C-O>
 
 " NERD Commenter configuration
 let g:NERDSpaceDelims = 1
@@ -108,7 +110,7 @@ set showmode
 set title
 " Show the (partial) command as it’s being typed
 set showcmd
-
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
-
+" Don't automatically select the first suggestion when running autocompletion
+set completeopt=menu,noinsert
