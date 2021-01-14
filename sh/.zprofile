@@ -13,6 +13,7 @@ export PATH="/usr/local/sbin:$PATH"
 
 # Go
 export PATH="$PATH:$HOME/go/bin"
+export GOPRIVATE="git.corp.adobe.com,github.com/adobe,github.com/adobe-private"
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -44,4 +45,7 @@ nvm() {
     nvm "$@"
 }
 
-export GOPRIVATE="git.corp.adobe.com,github.com/adobe,github.com/adobe-private"
+# Load credentials, if provided.
+if [ -f "$HOME/credentials.sh" ]; then
+    source "$HOME/credentials.sh"
+fi
