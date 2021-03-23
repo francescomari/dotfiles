@@ -33,6 +33,9 @@ alias kn="kubens"
 # Additional Kuberentes configuration files
 export KUBECONFIG="${HOME}/.kube/config:${HOME}/src/k8s-kubeconfig/kubeconfig.yaml"
 
+# Disable some weird configuration so that certain Ansible features work.
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
 # NVM
 export NVM_DIR="$HOME/.nvm"
 
