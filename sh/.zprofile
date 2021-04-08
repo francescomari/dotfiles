@@ -30,6 +30,9 @@ alias k="kubectl"
 alias kc="kubectx"
 alias kn="kubens"
 
+# Honest aliases
+alias shit=git
+
 # Additional Kuberentes configuration files
 export KUBECONFIG="${HOME}/.kube/config:${HOME}/src/k8s-kubeconfig/kubeconfig.yaml"
 
