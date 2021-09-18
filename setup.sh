@@ -17,7 +17,7 @@ for i in \
     whatsapp \
     daisydisk \
     skype \
-    spectacle \
+    rectangle \
     iterm2
 do
     brew install $i
