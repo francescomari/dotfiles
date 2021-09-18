@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env sh
 
 # Install Brew
 # ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
