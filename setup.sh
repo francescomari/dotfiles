@@ -17,7 +17,8 @@ for i in \
     daisydisk \
     skype \
     rectangle \
-    iterm2
+    iterm2 \
+    1password
 do
     brew install $i
 done
