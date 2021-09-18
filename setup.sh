@@ -1,10 +1,10 @@
 #!/usr/bin/env zsh
 
 # Install Brew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Install Oh My ZSH!
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Install Brew casks
 for i in \
@@ -21,7 +21,7 @@ for i in \
     macvim \
     iterm2
 do
-    brew cask install $i
+    brew install $i
 done
 
 # Brew pacakges
