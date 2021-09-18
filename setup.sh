@@ -18,7 +18,6 @@ for i in \
     daisydisk \
     skype \
     spectacle \
-    macvim \
     iterm2
 do
     brew install $i
