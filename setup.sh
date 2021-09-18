@@ -14,6 +14,7 @@ for i in \
     spotify \
     visual-studio-code \
     whatsapp \
+    signal \
     daisydisk \
     skype \
     rectangle \
