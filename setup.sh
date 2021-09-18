@@ -9,7 +9,6 @@
 # Install Brew casks
 for i in \
     alfred \
-    intellij-idea-ce \
     java \
     slack \
     spotify \
