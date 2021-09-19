@@ -15,35 +15,33 @@ if [ ! -d ~/.sdkman ] ; then
     curl -s "https://get.sdkman.io" | bash
 fi
 
-# Install Brew casks
+# Brew formulas
 for i in \
+    1password \
     alfred \
+    colordiff \
+    daisydisk \
+    git \
+    go \
+    iterm2 \
     java \
+    maven \
+    rectangle \
+    signal \
+    skype \
     slack \
     spotify \
-    visual-studio-code \
-    whatsapp \
-    signal \
-    daisydisk \
-    skype \
-    rectangle \
-    iterm2 \
-    1password
-do
-    brew install $i
-done
-
-# Brew pacakges
-for i in \
-    go \
-    git \
-    maven \
     stow \
     subversion \
     vim \
-    colordiff
+    visual-studio-code \
+    whatsapp
 do
-    brew install $i
+    if brew list -q $i ; then
+        echo "Formula '$i' is alredy installed"
+    else
+        brew install $i
+    fi
 done
 
 # Configuration files
