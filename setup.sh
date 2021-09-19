@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # Install Brew
 if ! command -v brew >/dev/null ; then
@@ -16,41 +16,45 @@ if [ ! -d ~/.sdkman ] ; then
 fi
 
 # Brew formulas
-for i in \
-    1password \
-    alfred \
-    colordiff \
-    daisydisk \
-    git \
-    go \
-    iterm2 \
-    java \
-    maven \
-    rectangle \
-    signal \
-    skype \
-    slack \
-    spotify \
-    stow \
-    subversion \
-    vim \
-    visual-studio-code \
+formulas=(
+    1password
+    alfred
+    colordiff
+    daisydisk
+    git
+    go
+    goland
+    intellij-idea
+    iterm2
+    java
+    maven
+    rectangle
+    signal
+    skype
+    slack
+    spotify
+    stow
+    subversion
+    vim
+    visual-studio-code
     whatsapp
-do
-    if brew list -q $i ; then
-        echo "Formula '$i' is alredy installed"
-    else
-        brew install $i
+)
+
+for i in  "${formulas[@]}" ; do
+    if ! brew list "$i" ; then
+        brew install "$i"
     fi
 done
 
-# Configuration files
-for i in \
-    sh \
-    git \
-    gvim \
-    subversion \
+# Stow configurations
+configs=(
+    git
+    gvim
+    sh
+    subversion
     vim
-do
-    stow $i
+)
+
+for i in "${configs[@]}" ; do
+    stow "$i"
 done
