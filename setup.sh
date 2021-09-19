@@ -10,6 +10,11 @@ if [ ! -d ~/.oh-my-zsh ] ; then
     RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
+# Install SDKMAN!
+if [ ! -d ~/.sdkman ] ; then
+    curl -s "https://get.sdkman.io" | bash
+fi
+
 # Install Brew casks
 for i in \
     alfred \
