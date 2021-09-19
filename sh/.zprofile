@@ -47,8 +47,11 @@ nvm() {
     if [ -s "$NVM_DIR/nvm.sh" ]; then
         unset -f nvm
         source "$NVM_DIR/nvm.sh"
+        nvm "$@"
+    else
+        echo "nvm is not installed"
+        return 1
     fi
-    nvm "$@"
 }
 
 # Load credentials, if provided.
