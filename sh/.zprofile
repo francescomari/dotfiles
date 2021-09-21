@@ -33,8 +33,17 @@ alias kn="kubens"
 # Honest aliases
 alias shit=git
 
-# Additional Kuberentes configuration files
-export KUBECONFIG="${HOME}/.kube/config:${HOME}/src/k8s-kubeconfig/kubeconfig.yaml"
+# Additional Kuberentes configuration files. Add then only if they exists,
+# because some tools will get confused if a Kubernetes configuration file
+# doesn't exist.
+
+KUBECONFIG="${HOME}/.kube/config"
+
+if [ -f "${HOME}/src/k8s-kubeconfig/kubeconfig.yaml" ] ; then
+    KUBECONFIG="${KUBECONFIG}:${HOME}/src/k8s-kubeconfig/kubeconfig.yaml"
+fi
+
+export KUBECONFIG
 
 # Disable some weird configuration so that certain Ansible features work.
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
