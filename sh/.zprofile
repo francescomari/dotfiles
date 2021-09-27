@@ -78,53 +78,64 @@ goland() {
 
 # Run E2E tests for EaaS
 eaas_e2e() {
-    (
-        if [ $# -lt 1 ] ; then
-            echo >&2 "usage: $0 dev|stage|prod [args...]"
+    if [ $# -lt 1 ] ; then
+        echo >&2 "usage: $0 dev|stage|prod [args...]"
+        return 1
+    fi
+
+    case $1 in
+        dev)
+            EAAS_API_ENDPOINT=$EAAS_E2E_DEV_API_ENDPOINT
+            IMS_URL=$EAAS_E2E_DEV_IMS_URL
+            JWT_ISSUER=$EAAS_E2E_DEV_JWT_ISSUER
+            JWT_SUBJECT=$EAAS_E2E_DEV_JWT_SUBJECT
+            JWT_CLIENT_ID=$EAAS_E2E_DEV_JWT_CLIENT_ID
+            JWT_KEY=$EAAS_E2E_DEV_JWT_KEY
+            JWT_CLIENT_SECRET=$EAAS_E2E_DEV_JWT_CLIENT_SECRET
+            ;;
+        stage)
+            EAAS_API_ENDPOINT=$EAAS_E2E_STAGE_API_ENDPOINT
+            IMS_URL=$EAAS_E2E_STAGE_IMS_URL
+            JWT_ISSUER=$EAAS_E2E_STAGE_JWT_ISSUER
+            JWT_SUBJECT=$EAAS_E2E_STAGE_JWT_SUBJECT
+            JWT_CLIENT_ID=$EAAS_E2E_STAGE_JWT_CLIENT_ID
+            JWT_KEY=$EAAS_E2E_STAGE_JWT_KEY
+            JWT_CLIENT_SECRET=$EAAS_E2E_STAGE_JWT_CLIENT_SECRET
+            ;;
+        prod)
+            EAAS_API_ENDPOINT=$EAAS_E2E_PROD_API_ENDPOINT
+            IMS_URL=$EAAS_E2E_PROD_IMS_URL
+            JWT_ISSUER=$EAAS_E2E_PROD_JWT_ISSUER
+            JWT_SUBJECT=$EAAS_E2E_PROD_JWT_SUBJECT
+            JWT_CLIENT_ID=$EAAS_E2E_PROD_JWT_CLIENT_ID
+            JWT_KEY=$EAAS_E2E_PROD_JWT_KEY
+            JWT_CLIENT_SECRET=$EAAS_E2E_PROD_JWT_CLIENT_SECRET
+            ;;
+        *)
+            echo >&2 "error: invalid environment: $1"
             return 1
-        fi
+    esac
 
-        case $1 in
-            dev)
-                export EAAS_API_ENDPOINT=$EAAS_E2E_DEV_API_ENDPOINT
-                export IMS_URL=$EAAS_E2E_DEV_IMS_URL
-                export JWT_ISSUER=$EAAS_E2E_DEV_JWT_ISSUER
-                export JWT_SUBJECT=$EAAS_E2E_DEV_JWT_SUBJECT
-                export JWT_CLIENT_ID=$EAAS_E2E_DEV_JWT_CLIENT_ID
-                export JWT_KEY=$EAAS_E2E_DEV_JWT_KEY
-                export JWT_CLIENT_SECRET=$EAAS_E2E_DEV_JWT_CLIENT_SECRET
-                ;;
-            stage)
-                export EAAS_API_ENDPOINT=$EAAS_E2E_STAGE_API_ENDPOINT
-                export IMS_URL=$EAAS_E2E_STAGE_IMS_URL
-                export JWT_ISSUER=$EAAS_E2E_STAGE_JWT_ISSUER
-                export JWT_SUBJECT=$EAAS_E2E_STAGE_JWT_SUBJECT
-                export JWT_CLIENT_ID=$EAAS_E2E_STAGE_JWT_CLIENT_ID
-                export JWT_KEY=$EAAS_E2E_STAGE_JWT_KEY
-                export JWT_CLIENT_SECRET=$EAAS_E2E_STAGE_JWT_CLIENT_SECRET
-                ;;
-            prod)
-                export EAAS_API_ENDPOINT=$EAAS_E2E_PROD_API_ENDPOINT
-                export IMS_URL=$EAAS_E2E_PROD_IMS_URL
-                export JWT_ISSUER=$EAAS_E2E_PROD_JWT_ISSUER
-                export JWT_SUBJECT=$EAAS_E2E_PROD_JWT_SUBJECT
-                export JWT_CLIENT_ID=$EAAS_E2E_PROD_JWT_CLIENT_ID
-                export JWT_KEY=$EAAS_E2E_PROD_JWT_KEY
-                export JWT_CLIENT_SECRET=$EAAS_E2E_PROD_JWT_CLIENT_SECRET
-                ;;
-            *)
-                echo >&2 "error: invalid environment: $1"
-                return 1
-        esac
+    shift
 
-        shift
+    # Export the required variables in a subshell, so we don't pollute the
+    # current session.
+
+    (
+        export EAAS_API_ENDPOINT
+        export IMS_URL
+        export JWT_ISSUER
+        export JWT_SUBJECT
+        export JWT_CLIENT_ID
+        export JWT_KEY
+        export JWT_CLIENT_SECRET
 
         go test "$@"
     )
 }
 
 # Load credentials, if provided.
-if [ -f "$HOME/credentials.sh" ]; then
+if [ -f "$HOME/credentials.sh" ] ; then
     # shellcheck disable=SC1091
     . "$HOME/credentials.sh"
 fi
