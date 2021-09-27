@@ -63,6 +63,11 @@ nvm() {
     fi
 }
 
+# Open IDEA from the command line
+idea() {
+    open -na "IntelliJ IDEA.app" --args "$@"
+}
+
 # Open Goland from the command line
 goland() {
     open -na "GoLand.app" --args "$@"
