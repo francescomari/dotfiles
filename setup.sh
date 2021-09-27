@@ -50,6 +50,7 @@ done
 configs=(
     git
     gvim
+    maven
     sh
     subversion
     vim
