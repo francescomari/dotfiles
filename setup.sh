@@ -29,6 +29,7 @@ formulas=(
     java
     maven
     rectangle
+    shellcheck
     signal
     skype
     slack
