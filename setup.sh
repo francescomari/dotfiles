@@ -15,35 +15,45 @@ if [ ! -d ~/.sdkman ] ; then
     curl -s "https://get.sdkman.io" | bash
 fi
 
-# Brew formulas
-formulas=(
-    1password
-    alfred
+# Brew bottles and casks
+
+bottles=(
     colordiff
-    daisydisk
     git
     go
+    java
+    maven
+    shellcheck
+    stow
+    subversion
+    vim
+)
+
+for i in  "${bottles[@]}" ; do
+    if ! brew list "$i" ; then
+        brew install "$i"
+    fi
+done
+
+casks=(
+    1password
+    alfred
+    daisydisk
     goland
     intellij-idea
     iterm2
-    java
-    maven
     rectangle
-    shellcheck
     signal
     skype
     slack
     spotify
-    stow
-    subversion
-    vim
     visual-studio-code
     whatsapp
 )
 
-for i in  "${formulas[@]}" ; do
-    if ! brew list "$i" ; then
-        brew install "$i"
+for i in "${casks[@]}" ; do
+    if ! brew list --cask "$i" ; then
+        brew install --cask "$i"
     fi
 done
 
