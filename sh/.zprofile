@@ -63,6 +63,11 @@ nvm() {
     fi
 }
 
+# Open Goland from the command line
+goland() {
+    open -na "GoLand.app" --args "$@"
+}
+
 # Load credentials, if provided.
 if [ -f "$HOME/credentials.sh" ]; then
     source "$HOME/credentials.sh"
