@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 # Locale
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -53,9 +55,10 @@ export NVM_DIR="$HOME/.nvm"
 
 # Load nvm lazily because it drags on the startup of the shell.
 nvm() {
-    if [ -s "$NVM_DIR/nvm.sh" ]; then
+    if [ -s "$NVM_DIR/nvm.sh" ] ; then
         unset -f nvm
-        source "$NVM_DIR/nvm.sh"
+        # shellcheck disable=SC1091
+        . "$NVM_DIR/nvm.sh"
         nvm "$@"
     else
         echo "nvm is not installed"
@@ -73,7 +76,55 @@ goland() {
     open -na "GoLand.app" --args "$@"
 }
 
+# Run E2E tests for EaaS
+eaas_e2e() {
+    (
+        if [ $# -lt 1 ] ; then
+            echo >&2 "usage: $0 dev|stage|prod [args...]"
+            return 1
+        fi
+
+        case $1 in
+            dev)
+                export EAAS_API_ENDPOINT=$EAAS_E2E_DEV_API_ENDPOINT
+                export IMS_URL=$EAAS_E2E_DEV_IMS_URL
+                export JWT_ISSUER=$EAAS_E2E_DEV_JWT_ISSUER
+                export JWT_SUBJECT=$EAAS_E2E_DEV_JWT_SUBJECT
+                export JWT_CLIENT_ID=$EAAS_E2E_DEV_JWT_CLIENT_ID
+                export JWT_KEY=$EAAS_E2E_DEV_JWT_KEY
+                export JWT_CLIENT_SECRET=$EAAS_E2E_DEV_JWT_CLIENT_SECRET
+                ;;
+            stage)
+                export EAAS_API_ENDPOINT=$EAAS_E2E_STAGE_API_ENDPOINT
+                export IMS_URL=$EAAS_E2E_STAGE_IMS_URL
+                export JWT_ISSUER=$EAAS_E2E_STAGE_JWT_ISSUER
+                export JWT_SUBJECT=$EAAS_E2E_STAGE_JWT_SUBJECT
+                export JWT_CLIENT_ID=$EAAS_E2E_STAGE_JWT_CLIENT_ID
+                export JWT_KEY=$EAAS_E2E_STAGE_JWT_KEY
+                export JWT_CLIENT_SECRET=$EAAS_E2E_STAGE_JWT_CLIENT_SECRET
+                ;;
+            prod)
+                export EAAS_API_ENDPOINT=$EAAS_E2E_PROD_API_ENDPOINT
+                export IMS_URL=$EAAS_E2E_PROD_IMS_URL
+                export JWT_ISSUER=$EAAS_E2E_PROD_JWT_ISSUER
+                export JWT_SUBJECT=$EAAS_E2E_PROD_JWT_SUBJECT
+                export JWT_CLIENT_ID=$EAAS_E2E_PROD_JWT_CLIENT_ID
+                export JWT_KEY=$EAAS_E2E_PROD_JWT_KEY
+                export JWT_CLIENT_SECRET=$EAAS_E2E_PROD_JWT_CLIENT_SECRET
+                ;;
+            *)
+                echo >&2 "error: invalid environment: $1"
+                return 1
+        esac
+
+        shift
+
+        go test "$@"
+    )
+}
+
 # Load credentials, if provided.
 if [ -f "$HOME/credentials.sh" ]; then
-    source "$HOME/credentials.sh"
+    # shellcheck disable=SC1091
+    . "$HOME/credentials.sh"
 fi
