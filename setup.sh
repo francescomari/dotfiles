@@ -65,6 +65,7 @@ done
 configs=(
     git
     gvim
+    kubectl
     maven
     sh
     subversion
