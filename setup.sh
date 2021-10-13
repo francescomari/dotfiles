@@ -24,6 +24,7 @@ bottles=(
     colordiff
     git
     go
+    gpg
     java
     maven
     shellcheck
