@@ -50,22 +50,6 @@ export KUBECONFIG
 # Disable some weird configuration so that certain Ansible features work.
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-# NVM
-export NVM_DIR="$HOME/.nvm"
-
-# Load nvm lazily because it drags on the startup of the shell.
-nvm() {
-    if [ -s "$NVM_DIR/nvm.sh" ] ; then
-        unset -f nvm
-        # shellcheck disable=SC1091
-        . "$NVM_DIR/nvm.sh"
-        nvm "$@"
-    else
-        echo "nvm is not installed"
-        return 1
-    fi
-}
-
 # Open IDEA from the command line
 idea() {
     open -na "IntelliJ IDEA.app" --args "$@"
@@ -132,6 +116,49 @@ eaas_e2e() {
 
         go test "$@"
     )
+}
+
+run_playbook() {
+    if [ $# -lt 2 ] ; then
+        echo >&2 "usage: $0 dev|stage|prod playbook"
+        return 1
+    fi
+
+    case $1 in
+        dev)
+            ANSIBLE_PASSWORD=$ANSIBLE_PASSWORD_DEV
+            ANSIBLE_INVENTORY=inventory/dev
+            ;;
+        stage)
+            ANSIBLE_PASSWORD=$ANSIBLE_PASSWORD_STAGE
+            ANSIBLE_INVENTORY=inventory/stage
+            ;;
+        prod)
+            ANSIBLE_PASSWORD=$ANSIBLE_PASSWORD_PROD
+            ANSIBLE_INVENTORY=inventory/prod
+            ;;
+        *)
+            echo >&2 "error: invalid environment: $1"
+            return 1
+    esac
+
+    # Create a temporary password file.
+
+    PASSWORD_FILE=$(mktemp vault-XXXXXX)
+    echo "$ANSIBLE_PASSWORD" >"$PASSWORD_FILE"
+
+    # Run the playbook and save the return code.
+
+    ansible-playbook "$2" -i "$ANSIBLE_INVENTORY" --vault-password-file "$PASSWORD_FILE"
+    ANSIBLE_RETURN=$?
+
+    # Remove the teporary password file.
+
+    rm "$PASSWORD_FILE"
+
+    # Return whatever Ansible returned.
+
+    return $ANSIBLE_RETURN
 }
 
 # Load credentials, if provided.
