@@ -50,16 +50,6 @@ export KUBECONFIG
 # Disable some weird configuration so that certain Ansible features work.
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-# Open IDEA from the command line
-idea() {
-    open -na "IntelliJ IDEA.app" --args "$@"
-}
-
-# Open Goland from the command line
-goland() {
-    open -na "GoLand.app" --args "$@"
-}
-
 # Run E2E tests for EaaS
 eaas_e2e() {
     if [ $# -lt 1 ] ; then
