@@ -12,24 +12,25 @@ if [ ! -d ~/.oh-my-zsh ] ; then
     RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-# Install SDKMAN!
+# Add Homebrew taps
 
-if [ ! -d ~/.sdkman ] ; then
-    curl -s "https://get.sdkman.io" | bash
-fi
+taps=(
+    homebrew/cask-fonts
+)
 
-# Brew bottles and casks
+for i in "${taps[@]}" ; do
+    brew tap "$i"
+done
+
+# Install Homebrew bottles
 
 bottles=(
     colordiff
     git
+    gnupg
     go
-    gpg
-    java
-    maven
     shellcheck
     stow
-    subversion
     vim
 )
 
@@ -39,13 +40,14 @@ for i in  "${bottles[@]}" ; do
     fi
 done
 
+# Install Homebrew casks
+
 casks=(
-    1password
     alfred
     daisydisk
-    goland
-    intellij-idea
+    font-jetbrains-mono
     iterm2
+    jetbrains-toolbox
     rectangle
     signal
     skype
@@ -65,11 +67,7 @@ done
 
 configs=(
     git
-    gvim
-    kubectl
-    maven
     sh
-    subversion
     vim
 )
 

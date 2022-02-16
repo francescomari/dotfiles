@@ -5,13 +5,9 @@
   ls = !git --no-pager log --pretty=oneline --abbrev-commit -20
 [push]
 	default = simple
-[http "https://gopkg.in"]
-	followRedirects = true
 [color]
 	ui = auto
 [pull]
 	rebase = true
 [init]
 	defaultBranch = main
-[url "git@git.corp.adobe.com:"]
-	insteadOf = https://git.corp.adobe.com/
