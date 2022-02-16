@@ -63,6 +63,7 @@ casks=(
     skype
     slack
     spotify
+    textual
     visual-studio-code
     whatsapp
 )
