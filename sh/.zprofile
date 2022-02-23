@@ -14,7 +14,7 @@ export BIN="$HOME/bin"
 export PATH="/usr/local/sbin:$PATH"
 
 # Go
-export PATH="$PATH:$HOME/go/bin"
+export PATH="$HOME/go/bin:$PATH"
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
