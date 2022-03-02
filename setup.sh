@@ -7,12 +7,6 @@ if ! command -v brew >/dev/null ; then
     exit 1
 fi
 
-# Install Oh My ZSH!
-
-if [ ! -d ~/.oh-my-zsh ] ; then
-    RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
-
 # Add Homebrew taps
 
 taps=(
@@ -77,3 +71,9 @@ configs=(
 for i in "${configs[@]}" ; do
     stow "$i"
 done
+
+# Install Oh My ZSH!
+
+if [ ! -d ~/.oh-my-zsh ] ; then
+    KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi

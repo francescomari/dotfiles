@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 # Locale
 export LANG=en_US.UTF-8
@@ -10,9 +10,6 @@ export EDITOR="vim"
 # Binary folder
 export BIN="$HOME/bin"
 
-# Homebrew configuration
-eval "$(brew shellenv)"
-
 # Go
 export PATH="$HOME/go/bin:$PATH"
 
@@ -21,6 +18,12 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # Generic executables
 export PATH="$BIN:$PATH"
+
+# OMZ configuration
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
 
 # Kubernetes aliases
 alias k="kubectl"
