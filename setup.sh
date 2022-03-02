@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 
-# Install Brew
+# Require Brew
 
 if ! command -v brew >/dev/null ; then
-    echo "Installing Homebrew"
-    bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-else
-    echo "Homebrew is already installed"
+    echo 'Install Homebrew first. Follow the instructions at https://brew.sh/'
+    exit 1
 fi
 
 # Install Oh My ZSH!
