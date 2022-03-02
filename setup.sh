@@ -10,10 +10,7 @@ fi
 # Install Oh My ZSH!
 
 if [ ! -d ~/.oh-my-zsh ] ; then
-    echo "Installing Oh My ZSH!"
     RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-else
-    echo "Oh My ZSH is already installed"
 fi
 
 # Add Homebrew taps
@@ -23,7 +20,6 @@ taps=(
 )
 
 for i in "${taps[@]}" ; do
-    echo "Adding Homebrew tap '$i'"
     brew tap "$i"
 done
 
@@ -41,10 +37,7 @@ bottles=(
 
 for i in  "${bottles[@]}" ; do
     if ! brew list "$i" ; then
-        echo "Installing Homebrew bottle '$i'"
         brew install "$i"
-    else
-        echo "Homebrew bottle '$i' is already installed"
     fi
 done
 
@@ -69,10 +62,7 @@ casks=(
 
 for i in "${casks[@]}" ; do
     if ! brew list --cask "$i" ; then
-        echo "Installing Homebrew cask '$i'"
         brew install --cask "$i"
-    else
-        echo "Homebrew cask '$i' is already installed"
     fi
 done
 
@@ -85,6 +75,5 @@ configs=(
 )
 
 for i in "${configs[@]}" ; do
-    echo "Stowing configuratino for '$i'"
     stow "$i"
 done
