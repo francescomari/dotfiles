@@ -56,6 +56,8 @@ casks=(
     alfred
     daisydisk
     font-jetbrains-mono
+    google-chrome
+    google-drive
     iterm2
     jetbrains-toolbox
     rectangle
