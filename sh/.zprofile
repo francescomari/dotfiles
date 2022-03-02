@@ -10,8 +10,8 @@ export EDITOR="vim"
 # Binary folder
 export BIN="$HOME/bin"
 
-# Brew installs some executables in /usr/local/sbin
-export PATH="/usr/local/sbin:$PATH"
+# Homebrew configuration
+eval "$(brew shellenv)"
 
 # Go
 export PATH="$HOME/go/bin:$PATH"
