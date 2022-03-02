@@ -4,7 +4,7 @@
 
 if ! command -v brew >/dev/null ; then
     echo "Installing Homebrew"
-    NONINTERACTIVE=1 sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" >/dev/null 2>&1
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
     echo "Homebrew is already installed"
 fi
@@ -13,7 +13,7 @@ fi
 
 if [ ! -d ~/.oh-my-zsh ] ; then
     echo "Installing Oh My ZSH!"
-    RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" >/dev/null 2>&1
+    RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 else
     echo "Oh My ZSH is already installed"
 fi
@@ -26,7 +26,7 @@ taps=(
 
 for i in "${taps[@]}" ; do
     echo "Adding Homebrew tap '$i'"
-    brew tap "$i" >/dev/null 2>&1
+    brew tap "$i"
 done
 
 # Install Homebrew bottles
@@ -42,9 +42,9 @@ bottles=(
 )
 
 for i in  "${bottles[@]}" ; do
-    if ! brew list "$i" >/dev/null 2>&1 ; then
+    if ! brew list "$i" ; then
         echo "Installing Homebrew bottle '$i'"
-        brew install "$i" >/dev/null 2>&1
+        brew install "$i"
     else
         echo "Homebrew bottle '$i' is already installed"
     fi
@@ -70,9 +70,9 @@ casks=(
 )
 
 for i in "${casks[@]}" ; do
-    if ! brew list --cask "$i" >/dev/null 2>&1 ; then
+    if ! brew list --cask "$i" ; then
         echo "Installing Homebrew cask '$i'"
-        brew install --cask "$i" >/dev/null 2>&1
+        brew install --cask "$i"
     else
         echo "Homebrew cask '$i' is already installed"
     fi
