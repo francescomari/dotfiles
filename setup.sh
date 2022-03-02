@@ -52,6 +52,7 @@ casks=(
     textual
     visual-studio-code
     whatsapp
+    zoom
 )
 
 for i in "${casks[@]}" ; do
