@@ -90,7 +90,7 @@ for i in "${taps[@]}" ; do
     log "Installing Homebrew tap '$i'"
 
     if ! brew tap "$i" ; then
-        log "Error: installation of Homebrew tap '$i' failed"
+        errors+=("Installation of Homebrew tap '$i' failed")
     fi
 done
 
@@ -103,7 +103,7 @@ for i in  "${bottles[@]}" ; do
         log "Installing Homebrew bottle '$i'"
 
         if ! brew install "$i" ; then
-            log "Error: installation of Homebrew bottle '$i' failed"
+            errors+=("Installation of Homebrew bottle '$i' failed")
         fi
     else
         log "Homebrew bottle '$i' already installed"
@@ -119,7 +119,7 @@ for i in "${casks[@]}" ; do
         log "Installing Homebrew cask '$i'"
 
         if ! brew install --cask "$i" ; then
-            log "Error: installation of Homebrew cask '$i' failed"
+            errors+=("Installation of Homebrew cask '$i' failed")
         fi
     else
         log "Homebrew cask '$i' already installed"
@@ -134,7 +134,7 @@ for i in "${configs[@]}" ; do
     log "Installing Stow configuration '$i'"
 
     if ! stow "$i" ; then
-        log "Error: installation of Stow configuration '$i' failed"
+        errors+=("Installation of Stow configuration '$i' failed")
     fi
 done
 
@@ -144,8 +144,20 @@ if [ ! -d ~/.oh-my-zsh ] ; then
     log 'Installing Oh My ZSH!'
 
     if ! KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" ; then
-        log 'Error: installation of Oh My ZSH! failed'
+        errors+=('Installation of Oh My ZSH! failed')
     fi
 else
     log 'Oh My ZSH! already installed'
+fi
+
+# Print errors and terminate with a non-zero exit code.
+
+if [ ${#errors[@]} -gt 0 ] ; then
+    log "Setup errors:"
+
+    for e in "${errors[@]}" ; do
+        log " * $e"
+    done
+
+    exit 1
 fi
