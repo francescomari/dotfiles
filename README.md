@@ -10,6 +10,9 @@ updated, run the setup script:
 ./setup.sh
 ```
 
+By default, the script outputs concise messages outlining the performed actions.
+Use the `-v` flag to instruct the script to print the output of every command.
+
 At the end of the execution, all the necessary software and configuration should
 be installed.
 

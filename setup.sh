@@ -1,23 +1,66 @@
 #!/usr/bin/env bash
 
-# Require Brew
+# Parse options.
 
-if ! command -v brew >/dev/null ; then
-    echo 'Install Homebrew first. Follow the instructions at https://brew.sh/'
+verbose=0
+
+while [ $# -gt 0 ] ; do
+    case $1 in
+        -v)
+            verbose=1
+            shift
+            ;;
+        -*)
+            echo >&2 "Unrecognized option '$1'"
+            exit 1
+            ;;
+        *)
+            echo >&2 "Unrecognized argument '$1"
+            exit 1
+            ;;
+    esac
+done
+
+# Redirect stdout/stderr, but save stdout's FD in 3.
+
+if [ $verbose -eq 0 ] ; then
+    exec 3>&1 &>/dev/null
+else
+    exec 3>&1
+fi
+
+# Whatever is printed with log() will always be printed on stdout.
+
+log() {
+    echo >&3 "$@"
+}
+
+# Require Brew.
+
+if ! command -v brew ; then
+    log 'Install Homebrew first. Follow the instructions at https://brew.sh/'
     exit 1
 fi
 
-# Add Homebrew taps
+# Add Homebrew taps.
+
+log 'Installing Homebrew taps...'
 
 taps=(
     homebrew/cask-fonts
 )
 
 for i in "${taps[@]}" ; do
-    brew tap "$i"
+    log "Installing Homebrew tap '$i'"
+
+    if ! brew tap "$i" ; then
+        log "Error: installation of Homebrew tap '$i' failed"
+    fi
 done
 
-# Install Homebrew bottles
+# Install Homebrew bottles.
+
+log 'Installing Homebrew bottles...'
 
 bottles=(
     colordiff
@@ -31,11 +74,19 @@ bottles=(
 
 for i in  "${bottles[@]}" ; do
     if ! brew list "$i" ; then
-        brew install "$i"
+        log "Installing Homebrew bottle '$i'"
+
+        if ! brew install "$i" ; then
+            log "Error: installation of Homebrew bottle '$i' failed"
+        fi
+    else
+        log "Homebrew bottle '$i' already installed"
     fi
 done
 
 # Install Homebrew casks
+
+log 'Installing Homebrew casks...'
 
 casks=(
     alfred
@@ -57,11 +108,19 @@ casks=(
 
 for i in "${casks[@]}" ; do
     if ! brew list --cask "$i" ; then
-        brew install --cask "$i"
+        log "Installing Homebrew cask '$i'"
+
+        if ! brew install --cask "$i" ; then
+            log "Error: installation of Homebrew cask '$i' failed"
+        fi
+    else
+        log "Homebrew cask '$i' already installed"
     fi
 done
 
 # Stow configurations
+
+log 'Installing Stow configurations...'
 
 configs=(
     git
@@ -70,11 +129,21 @@ configs=(
 )
 
 for i in "${configs[@]}" ; do
-    stow "$i"
+    log "Installing Stow configuration '$i'"
+
+    if ! stow "$i" ; then
+        log "Error: installation of Stow configuration '$i' failed"
+    fi
 done
 
-# Install Oh My ZSH!
+# Install Oh My ZSH!.
 
 if [ ! -d ~/.oh-my-zsh ] ; then
-    KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    log 'Installing Oh My ZSH!'
+
+    if ! KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" ; then
+        log 'Error: installation of Oh My ZSH! failed'
+    fi
+else
+    log 'Oh My ZSH! already installed'
 fi
