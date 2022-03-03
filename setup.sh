@@ -1,5 +1,45 @@
 #!/usr/bin/env bash
 
+# Setup configuration.
+
+taps=(
+    homebrew/cask-fonts
+)
+
+bottles=(
+    colordiff
+    git
+    gnupg
+    go
+    shellcheck
+    stow
+    vim
+)
+
+casks=(
+    alfred
+    daisydisk
+    font-jetbrains-mono
+    google-chrome
+    google-drive
+    iterm2
+    jetbrains-toolbox
+    rectangle
+    signal
+    slack
+    spotify
+    textual
+    visual-studio-code
+    whatsapp
+    zoom
+)
+
+configs=(
+    git
+    sh
+    vim
+)
+
 # Parse options.
 
 verbose=0
@@ -46,10 +86,6 @@ fi
 
 log 'Installing Homebrew taps...'
 
-taps=(
-    homebrew/cask-fonts
-)
-
 for i in "${taps[@]}" ; do
     log "Installing Homebrew tap '$i'"
 
@@ -61,16 +97,6 @@ done
 # Install Homebrew bottles.
 
 log 'Installing Homebrew bottles...'
-
-bottles=(
-    colordiff
-    git
-    gnupg
-    go
-    shellcheck
-    stow
-    vim
-)
 
 for i in  "${bottles[@]}" ; do
     if ! brew list "$i" ; then
@@ -88,24 +114,6 @@ done
 
 log 'Installing Homebrew casks...'
 
-casks=(
-    alfred
-    daisydisk
-    font-jetbrains-mono
-    google-chrome
-    google-drive
-    iterm2
-    jetbrains-toolbox
-    rectangle
-    signal
-    slack
-    spotify
-    textual
-    visual-studio-code
-    whatsapp
-    zoom
-)
-
 for i in "${casks[@]}" ; do
     if ! brew list --cask "$i" ; then
         log "Installing Homebrew cask '$i'"
@@ -121,12 +129,6 @@ done
 # Stow configurations
 
 log 'Installing Stow configurations...'
-
-configs=(
-    git
-    sh
-    vim
-)
 
 for i in "${configs[@]}" ; do
     log "Installing Stow configuration '$i'"
