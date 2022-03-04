@@ -143,7 +143,7 @@ done
 if [ ! -d ~/.oh-my-zsh ] ; then
     log 'Installing Oh My ZSH!'
 
-    if ! KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" ; then
+    if ! KEEP_ZSHRC=yes RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" ; then
         errors+=('Installation of Oh My ZSH! failed')
     fi
 else
