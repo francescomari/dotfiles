@@ -11,6 +11,7 @@ bottles=(
     git
     gnupg
     go
+    pinentry-mac
     shellcheck
     stow
     vim
@@ -148,6 +149,24 @@ if [ ! -d ~/.oh-my-zsh ] ; then
     fi
 else
     log 'Oh My ZSH! already installed'
+fi
+
+# Update or initialize the GPG configuration
+
+gpg_config="pinentry-program $(which pinentry-mac)"
+gpg_config_dir=~/.gnupg
+gpg_config_file="$gpg_config_dir/gpg-agent.conf"
+
+if ! grep -qxF "$gpg_config" "$gpg_config_file" ; then
+    log 'Configuring GPG'
+
+    if [ ! -d "$gpg_config_dir" ] ; then
+        mkdir -p "$gpg_config_dir"
+    fi
+
+    echo "$gpg_config" >>"$gpg_config_file"
+else
+    log 'GPG already configured'
 fi
 
 # Print errors and terminate with a non-zero exit code.
