@@ -1,51 +1,29 @@
 #!/usr/bin/env bash
 
-# Setup configuration.
+# Save stdout and stderr in FD 3 and 4, respectively, and redirect the output to
+# /dev/null.
 
-taps=(
-    homebrew/cask-fonts
-)
+exec 3>&1 4>&2 &>/dev/null
 
-bottles=(
-    colordiff
-    fnm
-    git
-    gnupg
-    go
-    pinentry-mac
-    shellcheck
-    stow
-    vim
-)
+# Library functions, used by this and other scripts.
 
-casks=(
-    alfred
-    cmake
-    daisydisk
-    font-jetbrains-mono
-    google-chrome
-    google-drive
-    iterm2
-    jetbrains-toolbox
-    rectangle
-    signal
-    slack
-    spotify
-    textual
-    visual-studio-code
-    whatsapp
-    zoom
-)
+log() {
+    echo >&3 "$@"
+}
 
-configs=(
-    git
-    sh
-    vim
-)
+error() {
+    errors+=("$1")
+}
+
+fatal() {
+    echo >&4 "$1"
+    exit 1
+}
 
 # Parse options.
 
 verbose=0
+module=''
 
 while [ $# -gt 0 ] ; do
     case $1 in
@@ -53,30 +31,46 @@ while [ $# -gt 0 ] ; do
             verbose=1
             shift
             ;;
+        work)
+            module='work'
+            shift
+            ;;
+        home)
+            module='home'
+            shift
+            ;;
         -*)
-            echo >&2 "Unrecognized option '$1'"
-            exit 1
+            fatal "Unrecognized option '$1'"
             ;;
         *)
-            echo >&2 "Unrecognized argument '$1"
-            exit 1
+            fatal "Unrecognized argument '$1'"
             ;;
     esac
 done
 
-# Redirect stdout/stderr, but save stdout's FD in 3.
+# Restore the original stdout/stderr FDs.
 
-if [ $verbose -eq 0 ] ; then
-    exec 3>&1 &>/dev/null
-else
-    exec 3>&1
+if [ $verbose -eq 1 ] ; then
+    exec 1>&3 2>&4
 fi
 
-# Whatever is printed with log() will always be printed on stdout.
+# Source the required configuration.
 
-log() {
-    echo >&3 "$@"
-}
+if [ -z "$module" ] ; then
+    fatal "Module not specified. Available values: home, work."
+fi
+
+case $module in
+    work)
+        source setup-work.sh
+        ;;
+    home)
+        source setup-home.sh
+        ;;
+    *)
+        fatal "Unrecognized module '$module'"
+        ;;
+esac
 
 # Require Brew.
 
@@ -93,7 +87,7 @@ for i in "${taps[@]}" ; do
     log "Installing Homebrew tap '$i'"
 
     if ! brew tap "$i" ; then
-        errors+=("Installation of Homebrew tap '$i' failed")
+        error "Installation of Homebrew tap '$i' failed"
     fi
 done
 
@@ -106,7 +100,7 @@ for i in  "${bottles[@]}" ; do
         log "Installing Homebrew bottle '$i'"
 
         if ! brew install "$i" ; then
-            errors+=("Installation of Homebrew bottle '$i' failed")
+            error "Installation of Homebrew bottle '$i' failed"
         fi
     else
         log "Homebrew bottle '$i' already installed"
@@ -122,7 +116,7 @@ for i in "${casks[@]}" ; do
         log "Installing Homebrew cask '$i'"
 
         if ! brew install --cask "$i" ; then
-            errors+=("Installation of Homebrew cask '$i' failed")
+            error "Installation of Homebrew cask '$i' failed"
         fi
     else
         log "Homebrew cask '$i' already installed"
@@ -137,39 +131,13 @@ for i in "${configs[@]}" ; do
     log "Installing Stow configuration '$i'"
 
     if ! stow "$i" ; then
-        errors+=("Installation of Stow configuration '$i' failed")
+        error "Installation of Stow configuration '$i' failed"
     fi
 done
 
-# Install Oh My ZSH!.
+# Custom setup
 
-if [ ! -d ~/.oh-my-zsh ] ; then
-    log 'Installing Oh My ZSH!'
-
-    if ! KEEP_ZSHRC=yes RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" ; then
-        errors+=('Installation of Oh My ZSH! failed')
-    fi
-else
-    log 'Oh My ZSH! already installed'
-fi
-
-# Update or initialize the GPG configuration
-
-gpg_config="pinentry-program $(which pinentry-mac)"
-gpg_config_dir=~/.gnupg
-gpg_config_file="$gpg_config_dir/gpg-agent.conf"
-
-if ! grep -qxF "$gpg_config" "$gpg_config_file" ; then
-    log 'Configuring GPG'
-
-    if [ ! -d "$gpg_config_dir" ] ; then
-        mkdir -p "$gpg_config_dir"
-    fi
-
-    echo "$gpg_config" >>"$gpg_config_file"
-else
-    log 'GPG already configured'
-fi
+custom_setup
 
 # Print errors and terminate with a non-zero exit code.
 

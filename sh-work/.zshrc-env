@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Node version manager
+eval "$(fnm env --use-on-cd)"
+
+# Kubernetes aliases
+alias k="kubectl"
+alias kc="kubectx"
+alias kn="kubens"
+
+# Load credentials, if provided.
+if [ -f "$HOME/credentials.sh" ] ; then
+    # shellcheck disable=SC1091
+    . "$HOME/credentials.sh"
+fi

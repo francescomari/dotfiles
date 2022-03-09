@@ -7,7 +7,7 @@ On a fresh machine, or on an existing machine whose configuration needs to be
 updated, run the setup script:
 
 ```sh
-./setup.sh
+./setup.sh [-v] [home|work]
 ```
 
 By default, the script outputs concise messages outlining the performed actions.
@@ -15,13 +15,3 @@ Use the `-v` flag to instruct the script to print the output of every command.
 
 At the end of the execution, all the necessary software and configuration should
 be installed.
-
-# Manual steps
-
-The following tasks must be performed manually on a fresh machine:
-
-- Log in to the JetBrains Toolbox and install the necessary IDEs.
-- Log in to Visual Studio Code. This will automatically sync the preferences for
-  the editor.
-- Configure iterm2 to load the preferences from the `iterm2` directory in this
-  repository.
