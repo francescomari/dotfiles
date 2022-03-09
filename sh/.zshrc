@@ -25,6 +25,9 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
+# Node version manager
+eval "$(fnm env --use-on-cd)"
+
 # Kubernetes aliases
 alias k="kubectl"
 alias kc="kubectx"

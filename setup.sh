@@ -8,6 +8,7 @@ taps=(
 
 bottles=(
     colordiff
+    fnm
     git
     gnupg
     go
@@ -19,6 +20,7 @@ bottles=(
 
 casks=(
     alfred
+    cmake
     daisydisk
     font-jetbrains-mono
     google-chrome
