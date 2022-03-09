@@ -6,7 +6,7 @@ Most of the configuration assumes to be run on a MacOS X system.
 On a fresh machine, or on an existing machine whose configuration needs to be
 updated, run the setup script:
 
-```sh
+```
 ./setup.sh [-v] [home|work]
 ```
 
