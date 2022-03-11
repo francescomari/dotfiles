@@ -2,14 +2,22 @@
 
 source setup-base.sh
 
+taps+=(
+    ngrok/ngrok
+)
+
 bottles+=(
     fnm
     gnupg
+    ngrok
     pinentry-mac
+    postgresql@13
+    redis
 )
 
 casks+=(
     cmake
+    postico
     zoom
 )
 

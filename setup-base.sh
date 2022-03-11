@@ -16,6 +16,7 @@ export bottles=(
 export casks=(
     alfred
     daisydisk
+    docker
     font-jetbrains-mono
     google-chrome
     google-drive
