@@ -8,6 +8,7 @@ export bottles=(
     colordiff
     git
     go
+    jq
     shellcheck
     stow
     vim
