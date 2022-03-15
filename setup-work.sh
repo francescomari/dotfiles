@@ -1,54 +1,58 @@
 #!/usr/bin/env bash
 
-source setup-base.sh
+source lib/setup.sh
 
-taps+=(
+parse_flags "$@"
+
+require_homebrew
+
+install_taps \
+    homebrew/cask-fonts \
     ngrok/ngrok
-)
 
-bottles+=(
-    fnm
-    gnupg
-    ngrok
-    pinentry-mac
-    postgresql@13
-    redis
-)
+install_bottles \
+    fnm \
+    git \
+    gnupg \
+    go \
+    jq \
+    ngrok \
+    pinentry-mac \
+    postgresql@13 \
+    redis \
+    shellcheck \
+    stow \
+    vim
 
-casks+=(
-    cmake
-    postico
+install_casks \
+    alfred \
+    cmake \
+    daisydisk \
+    docker \
+    font-jetbrains-mono \
+    google-chrome \
+    google-drive \
+    iterm2 \
+    jetbrains-toolbox \
+    postico \
+    rectangle \
+    signal \
+    slack \
+    spotify \
+    textual \
+    visual-studio-code \
+    whatsapp \
     zoom
-)
 
-configs+=(
-    git-work
-    sh-work
-)
+install_configs \
+    git-base \
+    git-work \
+    sh-base \
+    sh-work \
+    vim
 
-setup_gnupg() {
-    local gpg_config
-    local gpg_config_dir
-    local gpg_config_file
+setup_omz
 
-    gpg_config="pinentry-program $(which pinentry-mac)"
-    gpg_config_dir=~/.gnupg
-    gpg_config_file="$gpg_config_dir/gpg-agent.conf"
+setup_gnupg
 
-    if ! grep -qxF "$gpg_config" "$gpg_config_file" ; then
-        log 'Configuring GPG'
-
-        if [ ! -d "$gpg_config_dir" ] ; then
-            mkdir -p "$gpg_config_dir"
-        fi
-
-        echo "$gpg_config" >>"$gpg_config_file"
-    else
-        log 'GPG already configured'
-    fi
-}
-
-custom_setup() {
-    setup_omz
-    setup_gnupg
-}
+print_errors_and_exit

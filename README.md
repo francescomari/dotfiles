@@ -7,7 +7,7 @@ On a fresh machine, or on an existing machine whose configuration needs to be
 updated, run the setup script:
 
 ```
-./setup.sh [-v] [home|work]
+./setup-home.sh [-v]
 ```
 
 By default, the script outputs concise messages outlining the performed actions.
