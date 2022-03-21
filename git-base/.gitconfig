@@ -11,4 +11,4 @@
 [init]
 	defaultBranch = main
 [include]
-	path = ~/.gitconfig.inc
+	path = .gitconfig.inc
