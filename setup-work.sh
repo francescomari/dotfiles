@@ -32,6 +32,7 @@ casks=(
     google-drive
     iterm2
     jetbrains-toolbox
+    notion
     postico
     rectangle
     signal
