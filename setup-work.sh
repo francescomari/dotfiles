@@ -14,6 +14,7 @@ bottles=(
     go
     jq
     ngrok
+    opa
     pinentry-mac
     postgresql@13
     redis
