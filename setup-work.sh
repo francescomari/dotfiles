@@ -13,6 +13,7 @@ bottles=(
     gnupg
     go
     jq
+    kubectx
     ngrok
     opa
     pinentry-mac
@@ -30,6 +31,7 @@ casks=(
     docker
     font-jetbrains-mono
     google-chrome
+    google-cloud-sdk
     google-drive
     iterm2
     jetbrains-toolbox
