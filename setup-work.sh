@@ -5,6 +5,7 @@ source lib/setup.sh
 taps=(
     homebrew/cask-fonts
     ngrok/ngrok
+    shellspec/shellspec
 )
 
 bottles=(
@@ -20,6 +21,7 @@ bottles=(
     postgresql@13
     redis
     shellcheck
+    shellspec
     stow
     vim
 )
