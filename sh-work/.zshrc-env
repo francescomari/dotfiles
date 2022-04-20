@@ -11,6 +11,9 @@ alias k="kubectl"
 alias kc="kubectx"
 alias kn="kubens"
 
+# Private modules
+export GOPRIVATE=github.com/snyk
+
 # Load credentials, if provided.
 if [ -f "$HOME/credentials.sh" ] ; then
     # shellcheck disable=SC1091
