@@ -23,6 +23,7 @@ bottles=(
     shellcheck
     shellspec
     stow
+    terraform
     vim
 )
 
