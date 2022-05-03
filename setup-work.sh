@@ -9,6 +9,7 @@ taps=(
 )
 
 bottles=(
+    direnv
     fnm
     git
     gnupg

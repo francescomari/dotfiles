@@ -3,6 +3,9 @@
 # Node version manager
 eval "$(fnm env --use-on-cd)"
 
+# Direnv
+eval "$(direnv hook zsh)"
+
 # Keg-only Postgres formula
 export PATH="/opt/homebrew/opt/postgresql@13/bin:$PATH"
 
