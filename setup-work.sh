@@ -3,6 +3,7 @@
 source lib/setup.sh
 
 taps=(
+    hashicorp/tap
     homebrew/cask-fonts
     ngrok/ngrok
     shellspec/shellspec
@@ -14,6 +15,7 @@ bottles=(
     git
     gnupg
     go
+    hashicorp/tap/terraform
     jq
     kubectx
     ngrok
@@ -24,7 +26,6 @@ bottles=(
     shellcheck
     shellspec
     stow
-    terraform
     vim
 )
 
