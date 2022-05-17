@@ -10,6 +10,7 @@ taps=(
 )
 
 bottles=(
+    aws-vault
     direnv
     fnm
     git
