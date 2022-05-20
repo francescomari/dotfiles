@@ -17,6 +17,7 @@ bottles=(
     git
     gnupg
     go
+    goreleaser
     hashicorp/tap/terraform
     jq
     kubectx
