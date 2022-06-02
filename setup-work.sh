@@ -12,6 +12,7 @@ taps=(
 bottles=(
     aws-vault
     awscli
+    circleci
     direnv
     fnm
     git
