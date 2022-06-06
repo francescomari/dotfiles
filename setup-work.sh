@@ -24,6 +24,7 @@ bottles=(
     kubectx
     ngrok
     opa
+    oras
     pinentry-mac
     postgresql@13
     redis
