@@ -26,6 +26,7 @@ casks=(
     jetbrains-toolbox
     rectangle
     signal
+    skype
     slack
     spotify
     textual

@@ -47,6 +47,7 @@ casks=(
     postico
     rectangle
     signal
+    skype
     slack
     spotify
     textual
