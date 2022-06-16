@@ -22,6 +22,7 @@ bottles=(
     hashicorp/tap/terraform
     jq
     kubectx
+    mitmproxy
     ngrok
     opa
     oras
