@@ -28,6 +28,7 @@ bottles=(
     oras
     pinentry-mac
     postgresql@13
+    python
     redis
     shellcheck
     shellspec

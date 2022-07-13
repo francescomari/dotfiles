@@ -17,6 +17,10 @@ alias kn="kubens"
 # Private modules
 export GOPRIVATE=github.com/snyk
 
+# Default Python
+alias python=python3
+alias pip=pip3
+
 # Load credentials, if provided.
 if [ -f "$HOME/credentials.sh" ] ; then
     # shellcheck disable=SC1091
