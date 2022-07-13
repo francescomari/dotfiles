@@ -3,6 +3,7 @@
 source lib/setup.sh
 
 taps=(
+    caarlos0/tap
     hashicorp/tap
     homebrew/cask-fonts
     ngrok/ngrok
@@ -12,6 +13,7 @@ taps=(
 bottles=(
     aws-vault
     awscli
+    caarlos0/tap/svu
     circleci
     direnv
     fnm
