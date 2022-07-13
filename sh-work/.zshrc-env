@@ -17,9 +17,8 @@ alias kn="kubens"
 # Private modules
 export GOPRIVATE=github.com/snyk
 
-# Default Python
-alias python=python3
-alias pip=pip3
+# Python
+export PATH="/opt/homebrew/opt/python@3.9/libexec/bin:$PATH"
 
 # Load credentials, if provided.
 if [ -f "$HOME/credentials.sh" ] ; then
