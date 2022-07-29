@@ -44,7 +44,6 @@ casks=(
     daisydisk
     docker
     font-jetbrains-mono
-    google-chrome
     google-cloud-sdk
     google-drive
     iterm2
@@ -53,7 +52,6 @@ casks=(
     rectangle
     signal
     skype
-    slack
     spotify
     textual
     visual-studio-code
