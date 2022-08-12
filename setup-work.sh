@@ -17,6 +17,7 @@ bottles=(
     circleci
     direnv
     fnm
+    fx
     git
     gnupg
     go

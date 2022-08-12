@@ -7,6 +7,7 @@ taps=(
 )
 
 bottles=(
+    fx
     git
     go
     jq
