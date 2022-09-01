@@ -50,6 +50,7 @@ casks=(
     iterm2
     jetbrains-toolbox
     postico
+    postman
     rectangle
     signal
     skype
