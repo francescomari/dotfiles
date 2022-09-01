@@ -18,7 +18,7 @@ alias kn="kubens"
 export GOPRIVATE=github.com/snyk
 
 # Python
-export PATH="/opt/homebrew/opt/python@3.9/libexec/bin:$PATH"
+export PATH="/opt/homebrew/opt/python@3.10/libexec/bin:$PATH"
 
 # Load credentials, if provided.
 if [ -f "$HOME/credentials.sh" ] ; then
