@@ -27,6 +27,7 @@ bottles=(
     kubectx
     mitmproxy
     ngrok
+    node
     opa
     oras
     pinentry-mac
