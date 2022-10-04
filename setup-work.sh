@@ -14,6 +14,7 @@ bottles=(
     aws-vault
     awscli
     caarlos0/tap/svu
+    changie
     circleci
     direnv
     fnm
@@ -73,6 +74,7 @@ configs=(
 parse_flags "$@"
 require_homebrew
 install_taps "${taps[@]}"
+install_tap_with_url miniscruff/changie https://github.com/miniscruff/changie
 install_bottles "${bottles[@]}"
 install_casks "${casks[@]}"
 install_configs "${configs[@]}"
