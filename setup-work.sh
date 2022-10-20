@@ -38,6 +38,7 @@ bottles=(
     shellcheck
     shellspec
     stow
+    tree
     vim
 )
 
