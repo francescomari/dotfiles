@@ -22,6 +22,7 @@ bottles=(
     git
     gnupg
     go
+    golangci-lint
     goreleaser
     hashicorp/tap/terraform
     jq
