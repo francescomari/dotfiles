@@ -25,6 +25,7 @@ bottles=(
     golangci-lint
     goreleaser
     hashicorp/tap/terraform
+    helm
     jq
     kubectx
     mitmproxy
