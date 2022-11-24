@@ -64,8 +64,8 @@ install_taps() {
 install_tap_with_url() {
     info "Installing Homebrew tap '$1'"
 
-    if ! brew tap "$i" "$2" ; then
-        error "Installation of Homebrew tap '$i' failed"
+    if ! brew tap "$1" "$2" ; then
+        error "Installation of Homebrew tap '$1' failed"
     fi
 }
 
