@@ -19,6 +19,7 @@ bottles=(
     direnv
     fnm
     fx
+    ghcup
     git
     gnupg
     go
