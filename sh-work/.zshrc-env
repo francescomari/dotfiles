@@ -29,3 +29,6 @@ if [ -f "$HOME/credentials.sh" ] ; then
     # shellcheck disable=SC1091
     . "$HOME/credentials.sh"
 fi
+
+# Teleport
+export KUBECONFIG="${HOME}/teleport-kubeconfig.yaml"

@@ -41,6 +41,7 @@ bottles=(
     shellcheck
     shellspec
     stow
+    teleport
     tree
     vim
 )
