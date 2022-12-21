@@ -1,1 +1,7 @@
 #!/usr/bin/env bash
+
+# Load credentials, if provided.
+if [ -f "$HOME/credentials.sh" ] ; then
+    # shellcheck disable=SC1091
+    . "$HOME/credentials.sh"
+fi
