@@ -2,10 +2,6 @@
 
 source lib/setup.sh
 
-taps=(
-    homebrew/cask-fonts
-)
-
 bottles=(
     fx
     git
@@ -17,12 +13,13 @@ bottles=(
 )
 
 casks=(
+    1password
     alfred
     daisydisk
     docker
-    font-jetbrains-mono
     google-chrome
     google-drive
+    homebrew/cask-fonts/font-jetbrains-mono
     iterm2
     jetbrains-toolbox
     rectangle
@@ -45,7 +42,6 @@ configs=(
 
 parse_flags "$@"
 require_homebrew
-install_taps "${taps[@]}"
 install_bottles "${bottles[@]}"
 install_casks "${casks[@]}"
 install_configs "${configs[@]}"

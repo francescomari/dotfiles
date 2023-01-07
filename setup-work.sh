@@ -2,14 +2,6 @@
 
 source lib/setup.sh
 
-taps=(
-    caarlos0/tap
-    hashicorp/tap
-    homebrew/cask-fonts
-    ngrok/ngrok
-    shellspec/shellspec
-)
-
 bottles=(
     aws-vault
     awscli
@@ -30,7 +22,7 @@ bottles=(
     jq
     kubectx
     mitmproxy
-    ngrok
+    ngrok/ngrok/ngrok
     node
     opa
     oras
@@ -39,7 +31,7 @@ bottles=(
     python
     redis
     shellcheck
-    shellspec
+    shellspec/shellspec/shellspec
     stow
     teleport
     tree
@@ -51,7 +43,7 @@ casks=(
     cmake
     daisydisk
     docker
-    font-jetbrains-mono
+    homebrew/cask-fonts/font-jetbrains-mono
     google-cloud-sdk
     google-drive
     iterm2
@@ -78,7 +70,6 @@ configs=(
 
 parse_flags "$@"
 require_homebrew
-install_taps "${taps[@]}"
 install_tap_with_url miniscruff/changie https://github.com/miniscruff/changie
 install_bottles "${bottles[@]}"
 install_casks "${casks[@]}"

@@ -49,18 +49,6 @@ require_homebrew() {
     fi
 }
 
-install_taps() {
-    info 'Installing Homebrew taps...'
-
-    for i in "$@" ; do
-        info "Installing Homebrew tap '$i'"
-
-        if ! brew tap "$i" ; then
-            error "Installation of Homebrew tap '$i' failed"
-        fi
-    done
-}
-
 install_tap_with_url() {
     info "Installing Homebrew tap '$1'"
 
