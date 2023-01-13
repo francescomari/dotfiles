@@ -30,6 +30,7 @@ bottles=(
     postgresql@13
     python
     redis
+    remotemobprogramming/brew/mob
     shellcheck
     shellspec/shellspec/shellspec
     stow
