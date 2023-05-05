@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Python
+export PATH="$PATH:$HOME/Library/Python/3.11/bin"
+export PATH="$PATH:/usr/local/opt/python@3.11/libexec/bin"
+
 # Load credentials, if provided.
 if [ -f "$HOME/credentials.sh" ] ; then
     # shellcheck disable=SC1091
