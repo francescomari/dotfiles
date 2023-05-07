@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
 
+configure_omz() {
+    export ZSH="$HOME/.oh-my-zsh"
+
+    ZSH_THEME="robbyrussell"
+
+    plugins=(
+        git
+        golang
+    )
+
+    source $ZSH/oh-my-zsh.sh
+}
+
 # Locale
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -16,18 +29,11 @@ export PATH="$HOME/go/bin:$PATH"
 # Generic executables
 export PATH="$BIN:$PATH"
 
+# Brew autocompletions
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
 # OMZ configuration
-
-export ZSH="$HOME/.oh-my-zsh"
-
-ZSH_THEME="robbyrussell"
-
-plugins=(
-    git
-    golang
-)
-
-source $ZSH/oh-my-zsh.sh
+configure_omz
 
 # Environment-specific stuff
 if [ -f "$HOME/.zshrc-env" ] ; then
