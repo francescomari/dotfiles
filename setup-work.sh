@@ -36,6 +36,7 @@ bottles=(
     stow
     tctl
     teleport
+    tilt-dev/tap/tilt
     tree
     vim
 )
