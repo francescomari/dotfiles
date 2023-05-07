@@ -31,7 +31,7 @@ if [ -f "$HOME/credentials.sh" ] ; then
 fi
 
 # Teleport
-export KUBECONFIG="${HOME}/teleport-kubeconfig.yaml"
+export KUBECONFIG="${HOME}/.kube/config:${HOME}/teleport-kubeconfig.yaml"
 
 # Development build of Snyk CLI
 alias snyk-dev="node \${HOME}/src/snyk/cli/dist/cli"
