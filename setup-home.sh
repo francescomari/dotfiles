@@ -16,6 +16,7 @@ casks=(
     1password
     alfred
     daisydisk
+    discord
     docker
     google-chrome
     google-drive

@@ -45,10 +45,11 @@ casks=(
     alfred
     cmake
     daisydisk
+    discord
     docker
-    homebrew/cask-fonts/font-jetbrains-mono
     google-cloud-sdk
     google-drive
+    homebrew/cask-fonts/font-jetbrains-mono
     iterm2
     jetbrains-toolbox
     postico
