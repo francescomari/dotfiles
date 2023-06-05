@@ -9,6 +9,10 @@ info() {
     echo >&3 "$@"
 }
 
+warn() {
+    warnings+=("$1")
+}
+
 error() {
     errors+=("$1")
 }
@@ -73,6 +77,24 @@ install_bottles() {
     done
 }
 
+check_unmanaged_bottles() {
+    info 'Checking for unmanaged bottles...'
+
+    for i in $(brew leaves -r) ; do
+        local found=0
+
+        for j in "$@" ; do
+            if [ "$i" == "$j" ] ; then
+                found=1
+            fi
+        done
+
+        if [ "$found" == "0" ] ; then
+            warn "Bottle '${i}' is not managed by configuration"
+        fi
+    done
+}
+
 install_casks() {
     info 'Installing Homebrew casks...'
 
@@ -85,6 +107,24 @@ install_casks() {
             fi
         else
             info "Homebrew cask '$i' already installed"
+        fi
+    done
+}
+
+check_unmanaged_casks() {
+    info 'Checking for unmanaged casks...'
+
+    for i in $(brew list --cask) ; do
+        local found=0
+
+        for j in "$@" ; do
+            if [ "$i" == "${j##*/}" ] ; then
+                found=1
+            fi
+        done
+
+        if [ "$found" == "0" ] ; then
+            warn "Cask '${i}' is not managed by configuration"
         fi
     done
 }
@@ -136,6 +176,14 @@ setup_gnupg() {
 }
 
 print_errors_and_exit() {
+    if [ ${#warnings[@]} -gt 0 ] ; then
+        info "Warnings:"
+
+        for w in "${warnings[@]}" ; do
+            info " * $w"
+        done
+    fi
+
     if [ ${#errors[@]} -gt 0 ] ; then
         info "Setup errors:"
 

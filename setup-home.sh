@@ -44,7 +44,9 @@ configs=(
 parse_flags "$@"
 require_homebrew
 install_bottles "${bottles[@]}"
+check_unmanaged_bottles "${bottles[@]}"
 install_casks "${casks[@]}"
+check_unmanaged_casks "${casks[@]}"
 install_configs "${configs[@]}"
 setup_omz
 print_errors_and_exit
