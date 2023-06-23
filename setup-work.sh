@@ -31,6 +31,7 @@ bottles=(
     oras
     pinentry-mac
     postgresql@13
+    pre-commit
     python
     redis
     remotemobprogramming/brew/mob
