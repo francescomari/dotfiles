@@ -29,8 +29,11 @@ casks=(
     slack
     spotify
     textual
+    transmission
     visual-studio-code
+    vlc
     whatsapp
+    zoom
 )
 
 configs=(
