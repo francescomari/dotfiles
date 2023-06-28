@@ -15,6 +15,7 @@ bottles=(
 casks=(
     1password
     alfred
+    arc
     daisydisk
     discord
     docker
