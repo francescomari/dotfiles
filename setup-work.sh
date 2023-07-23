@@ -50,7 +50,6 @@ bottles=(
 casks=(
     1password-cli
     alfred
-    arc
     cmake
     daisydisk
     discord
