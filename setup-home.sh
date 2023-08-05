@@ -23,6 +23,7 @@ casks=(
     homebrew/cask-fonts/font-jetbrains-mono
     iterm2
     jetbrains-toolbox
+    obsidian
     rectangle
     signal
     skype
