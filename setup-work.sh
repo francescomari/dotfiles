@@ -19,6 +19,7 @@ bottles=(
     go
     golangci-lint
     goreleaser
+    graphviz
     hashicorp/tap/terraform
     helm
     jq
@@ -60,6 +61,7 @@ casks=(
     iterm2
     jetbrains-toolbox
     ngrok
+    obsidian
     postico
     postman
     rectangle
