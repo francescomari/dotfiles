@@ -40,8 +40,8 @@ bottles=(
     shellspec/shellspec/shellspec
     snyk/tap/snyk
     stow
-    tctl
     teleport
+    temporal
     tilt-dev/tap/tilt
     tree
     vim
