@@ -48,5 +48,5 @@ crun() {
 
     trap cleanup EXIT
 
-    g++ -o a.out "$1" && ./a.out
+    g++ -std=c++20 -o a.out "$1" && ./a.out
 }
