@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Load credentials, if provided.
+if [ -f "$HOME/credentials.sh" ] ; then
+    # shellcheck disable=SC1091
+    . "$HOME/credentials.sh"
+fi
+
+if [ -d "$HOME/bin/go" ] ; then
+    export PATH="$HOME/bin/go/bin:$PATH"
+fi
+
+if [ -d "$HOME/bin/node" ] ; then
+    export PATH="$HOME/bin/node/bin:$PATH"
+fi

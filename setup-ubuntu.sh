@@ -6,7 +6,7 @@ configs=(
     git-base
     git-home
     sh-base
-    sh-home
+    sh-ubuntu
     vim
 )
 
