@@ -13,3 +13,5 @@
 	defaultBranch = main
 [include]
 	path = .gitconfig.inc
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
