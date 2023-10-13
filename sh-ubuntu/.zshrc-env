@@ -6,10 +6,8 @@ if [ -f "$HOME/credentials.sh" ] ; then
     . "$HOME/credentials.sh"
 fi
 
-if [ -d "$HOME/bin/go" ] ; then
-    export PATH="$HOME/bin/go/bin:$PATH"
-fi
+# Go
+export PATH="$HOME/bin/go/bin:$PATH"
 
-if [ -d "$HOME/bin/node" ] ; then
-    export PATH="$HOME/bin/node/bin:$PATH"
-fi
+# Node
+export PATH="$HOME/bin/node/bin:$PATH"
