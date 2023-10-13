@@ -30,7 +30,9 @@ export PATH="$HOME/go/bin:$PATH"
 export PATH="$BIN:$PATH"
 
 # Brew autocompletions
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+if command -v brew ; then
+    FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
 
 # OMZ configuration
 configure_omz
