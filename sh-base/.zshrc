@@ -30,7 +30,7 @@ export PATH="$HOME/go/bin:$PATH"
 export PATH="$BIN:$PATH"
 
 # Brew autocompletions
-if command -v brew ; then
+if command -v brew >/dev/null ; then
     FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fi
 
