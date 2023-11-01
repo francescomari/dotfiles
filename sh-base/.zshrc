@@ -41,14 +41,3 @@ configure_omz
 if [ -f "$HOME/.zshrc-env" ] ; then
     source "$HOME/.zshrc-env"
 fi
-
-# Compile and run a C++ file
-crun() {
-    cleanup() {
-        rm a.out >/dev/null 2>&1
-    }
-
-    trap cleanup EXIT
-
-    g++ -std=c++20 -o a.out "$1" && ./a.out
-}
