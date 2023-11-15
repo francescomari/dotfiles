@@ -29,6 +29,7 @@ bottles=(
     mockery
     node
     opa
+    opam
     oras
     pinentry-mac
     postgresql@13

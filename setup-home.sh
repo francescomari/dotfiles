@@ -7,6 +7,7 @@ bottles=(
     git
     go
     jq
+    opam
     shellcheck
     stow
     vim
