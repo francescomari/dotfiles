@@ -11,3 +11,6 @@ export PATH="$HOME/bin/go/bin:$PATH"
 
 # Node
 export PATH="$HOME/bin/node/bin:$PATH"
+
+# Python
+alias python=python3
