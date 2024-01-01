@@ -14,3 +14,6 @@ export PATH="$HOME/bin/node/bin:$PATH"
 
 # Python
 alias python=python3
+
+# System-wide Python packages
+export PATH="$HOME/.local/bin:$PATH"
