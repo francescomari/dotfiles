@@ -20,3 +20,10 @@ if [ -f "$HOME/credentials.sh" ] ; then
     . "$HOME/credentials.sh"
 fi
 
+# SDKMAN!
+export SDKMAN_DIR="$HOME/.sdkman"
+
+if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] ; then
+    # shellcheck disable=SC1091
+    source "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
