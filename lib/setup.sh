@@ -153,28 +153,6 @@ setup_omz() {
     fi
 }
 
-setup_gnupg() {
-    local gpg_config
-    local gpg_config_dir
-    local gpg_config_file
-
-    gpg_config="pinentry-program $(which pinentry-mac)"
-    gpg_config_dir=~/.gnupg
-    gpg_config_file="$gpg_config_dir/gpg-agent.conf"
-
-    if ! grep -qxF "$gpg_config" "$gpg_config_file" ; then
-        info 'Configuring GPG'
-
-        if [ ! -d "$gpg_config_dir" ] ; then
-            mkdir -p "$gpg_config_dir"
-        fi
-
-        echo "$gpg_config" >>"$gpg_config_file"
-    else
-        info 'GPG already configured'
-    fi
-}
-
 print_errors_and_exit() {
     if [ ${#warnings[@]} -gt 0 ] ; then
         info "Warnings:"
