@@ -14,6 +14,7 @@ bottles=(
     helm
     jq
     kubectx
+    maven
     node
     shellcheck
     stow
@@ -48,6 +49,7 @@ casks=(
 configs=(
     git-base
     git-work
+    maven
     sh-base
     sh-work
     vim
