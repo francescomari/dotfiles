@@ -9,12 +9,14 @@ bottles=(
     fnm
     fx
     git
+    gitslave
     go
     goreleaser
     helm
     jq
     kubectx
     maven
+    mkcert
     node
     shellcheck
     stow
