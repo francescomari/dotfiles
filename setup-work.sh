@@ -3,6 +3,7 @@
 source lib/setup.sh
 
 bottles=(
+    azure/kubelogin/kubelogin
     cloc
     direnv
     dive
