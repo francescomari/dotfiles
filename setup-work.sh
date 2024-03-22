@@ -38,6 +38,7 @@ bottles=(
     dive
     experience-platform/internal/cmcli
     experience-platform/internal/skyline-ops-cli
+    fd
     fnm
     fx
     git
@@ -47,10 +48,12 @@ bottles=(
     helm
     jq
     kubectx
+    lazygit
     maven
     mkcert
     node
     parallel
+    ripgrep
     shellcheck
     stow
     tree
