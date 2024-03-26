@@ -6,9 +6,6 @@ eval "$(fnm env --use-on-cd)"
 # Direnv
 eval "$(direnv hook zsh)"
 
-# Kubernetes
-export KUBECONFIG="$HOME/.kube/config:$HOME/src/adobe-platform/k8s-kubeconfig/kubeconfig.yaml"
-
 # Kubernetes aliases
 alias k="kubectl"
 alias kc="kubectx"
