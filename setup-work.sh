@@ -70,7 +70,7 @@ casks=(
     discord
     docker
     google-drive
-    homebrew/cask-fonts/font-jetbrains-mono
+    homebrew/cask/font-jetbrains-mono
     iterm2
     jetbrains-toolbox
     ngrok
