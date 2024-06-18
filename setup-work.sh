@@ -47,11 +47,13 @@ bottles=(
     goreleaser
     helm
     jq
+    kind
     kubectx
     lazygit
     maven
     mkcert
     node
+    operator-sdk
     parallel
     ripgrep
     shellcheck
