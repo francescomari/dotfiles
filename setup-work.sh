@@ -55,6 +55,7 @@ bottles=(
     node
     operator-sdk
     parallel
+    python
     ripgrep
     shellcheck
     stow

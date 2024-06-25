@@ -27,3 +27,6 @@ if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] ; then
     # shellcheck disable=SC1091
     source "$HOME/.sdkman/bin/sdkman-init.sh"
 fi
+
+# Python
+export PATH="$PATH:/opt/homebrew/opt/python@3.12/libexec/bin"
