@@ -52,6 +52,7 @@ bottles=(
     lazygit
     maven
     mkcert
+    mongodb-atlas-cli
     node
     operator-sdk
     parallel
@@ -86,6 +87,7 @@ casks=(
     visual-studio-code
     vlc
     whatsapp
+    zoom
 )
 
 configs=(
