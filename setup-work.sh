@@ -46,6 +46,7 @@ bottles=(
     go
     goreleaser
     helm
+    jenv
     jq
     kind
     kubectx
@@ -77,6 +78,7 @@ casks=(
     homebrew/cask/font-jetbrains-mono
     iterm2
     jetbrains-toolbox
+    mitmproxy
     ngrok
     obsidian
     rectangle
