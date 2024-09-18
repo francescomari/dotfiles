@@ -59,6 +59,7 @@ bottles=(
     parallel
     python
     ripgrep
+    ruby
     shellcheck
     stow
     tree
