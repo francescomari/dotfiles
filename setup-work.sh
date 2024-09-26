@@ -75,8 +75,9 @@ casks=(
     daisydisk
     discord
     docker
+    font-jetbrains-mono
+    font-jetbrains-mono-nerd-font
     google-drive
-    homebrew/cask/font-jetbrains-mono
     iterm2
     jetbrains-toolbox
     mitmproxy
