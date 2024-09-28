@@ -3,7 +3,7 @@
 source lib/setup.sh
 
 bottles=(
-    fx
+    # fx
     git
     go
     jq
