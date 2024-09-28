@@ -21,7 +21,8 @@ casks=(
     docker
     google-chrome
     google-drive
-    homebrew/cask-fonts/font-jetbrains-mono
+    font-jetbrains-mono
+    font-jetbrains-mono-nerd-font
     iterm2
     jetbrains-toolbox
     obsidian
