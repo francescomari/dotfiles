@@ -32,6 +32,7 @@ bottles=(
     azure-cli
     azure/kubelogin/kubelogin
     bash
+    bats-core
     cloc
     coreutils
     direnv
