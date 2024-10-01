@@ -34,6 +34,7 @@ bottles=(
     bash
     bats-core
     cloc
+    conftest
     coreutils
     direnv
     dive
@@ -44,12 +45,15 @@ bottles=(
     fx
     git
     gitslave
+    gnu-sed
     go
     goreleaser
+    hashicorp/tap/vault
     helm
     jenv
     jq
     kind
+    kubeconform
     kubectx
     lazygit
     maven
@@ -66,6 +70,7 @@ bottles=(
     tree
     vim
     watch
+    yamllint
     yq
 )
 
