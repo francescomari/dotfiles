@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Suppress Homebrew hints
+export HOMEBREW_NO_ENV_HINTS=1
+
 # Node version manager
 eval "$(fnm env --use-on-cd)"
 
