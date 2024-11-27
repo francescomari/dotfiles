@@ -63,7 +63,8 @@ bottles=(
     operator-sdk
     parallel
     python
-    python-tk
+    python-tk@3.13
+    rbenv
     ripgrep
     ruby
     shellcheck
