@@ -62,6 +62,7 @@ bottles=(
     node
     operator-sdk
     parallel
+    prometheus
     python
     python-tk@3.13
     rbenv
