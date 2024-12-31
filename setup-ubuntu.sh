@@ -23,10 +23,6 @@ configs=(
     vim
 )
 
-command_exists() {
-    command -v "$1" > /dev/null 2>&1
-}
-
 install_repositories() {
     info "Installing APT repositories..."
 
@@ -82,9 +78,9 @@ install_docker() {
 
     if ! sudo usermod -aG docker $USER ; then
         fatal 'Adding user to the Docker group failed'
-    else
-        info 'Please run `newgrp docker` to apply the changes'
     fi
+
+    info 'Run `newgrp docker` to apply the changes'
 }
 
 parse_flags "$@"

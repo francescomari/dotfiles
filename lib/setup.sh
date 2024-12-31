@@ -47,8 +47,12 @@ parse_flags() {
     fi
 }
 
+command_exists() {
+    command -v "$1" > /dev/null 2>&1
+}
+
 require_homebrew() {
-    if ! command -v brew ; then
+    if ! command_exists brew ; then
         fatal 'Install Homebrew first. Follow the instructions at https://brew.sh/'
     fi
 }
@@ -65,14 +69,15 @@ install_bottles() {
     info 'Installing Homebrew bottles...'
 
     for i in  "$@" ; do
-        if ! brew list "$i" ; then
-            info "Installing Homebrew bottle '$i'"
-
-            if ! brew install "$i" ; then
-                error "Installation of Homebrew bottle '$i' failed"
-            fi
-        else
+        if  brew list "$i" ; then
             info "Homebrew bottle '$i' already installed"
+            continue
+        fi
+
+        info "Installing Homebrew bottle '$i'"
+
+        if ! brew install "$i" ; then
+            error "Installation of Homebrew bottle '$i' failed"
         fi
     done
 }
@@ -81,17 +86,13 @@ check_unmanaged_bottles() {
     info 'Checking for unmanaged bottles...'
 
     for i in $(brew leaves -r) ; do
-        local found=0
-
         for j in "$@" ; do
             if [ "$i" == "$j" ] ; then
-                found=1
+                continue 2
             fi
         done
 
-        if [ "$found" == "0" ] ; then
-            warn "Bottle '${i}' is not managed by configuration"
-        fi
+        warn "Bottle '${i}' is not managed by configuration"
     done
 }
 
@@ -99,14 +100,15 @@ install_casks() {
     info 'Installing Homebrew casks...'
 
     for i in "$@" ; do
-        if ! brew list --cask "$i" ; then
-            info "Installing Homebrew cask '$i'"
-
-            if ! brew install --cask "$i" ; then
-                error "Installation of Homebrew cask '$i' failed"
-            fi
-        else
+        if brew list --cask "$i" ; then
             info "Homebrew cask '$i' already installed"
+            continue
+        fi
+
+        info "Installing Homebrew cask '$i'"
+
+        if ! brew install --cask "$i" ; then
+            error "Installation of Homebrew cask '$i' failed"
         fi
     done
 }
@@ -115,17 +117,13 @@ check_unmanaged_casks() {
     info 'Checking for unmanaged casks...'
 
     for i in $(brew list --cask) ; do
-        local found=0
-
         for j in "$@" ; do
             if [ "$i" == "${j##*/}" ] ; then
-                found=1
+                continue 2
             fi
         done
 
-        if [ "$found" == "0" ] ; then
-            warn "Cask '${i}' is not managed by configuration"
-        fi
+        warn "Cask '${i}' is not managed by configuration"
     done
 }
 
@@ -142,14 +140,15 @@ install_configs() {
 }
 
 setup_omz() {
-    if [ ! -d ~/.oh-my-zsh ] ; then
-        info 'Installing Oh My ZSH!'
-
-        if ! KEEP_ZSHRC=yes RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" ; then
-            error 'Installation of Oh My ZSH! failed'
-        fi
-    else
+    if [ -d ~/.oh-my-zsh ] ; then
         info 'Oh My ZSH! already installed'
+        return
+    fi
+
+    info 'Installing Oh My ZSH!'
+
+    if ! KEEP_ZSHRC=yes RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" ; then
+        error 'Installation of Oh My ZSH! failed'
     fi
 }
 
