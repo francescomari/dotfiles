@@ -51,6 +51,18 @@ command_exists() {
     command -v "$1" > /dev/null 2>&1
 }
 
+commands_exist() {
+    local c
+
+    for c in "$@" ; do
+        if ! command_exists "$c" ; then
+            return 1
+        fi
+    done
+
+    return 0
+}
+
 require_homebrew() {
     if ! command_exists brew ; then
         fatal 'Install Homebrew first. Follow the instructions at https://brew.sh/'

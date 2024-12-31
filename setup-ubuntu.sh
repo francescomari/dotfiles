@@ -24,6 +24,8 @@ configs=(
 )
 
 install_repositories() {
+    local repository
+
     info "Installing APT repositories..."
 
     for repository in "${repositories[@]}" ; do
@@ -48,7 +50,7 @@ install_packages() {
 install_nodejs() {
     info "Installing Node.js..."
 
-    if command_exists node && command_exists npm ; then
+    if commands_exist node npm ; then
         info 'Node.js is already installed'
         return
     fi
