@@ -11,6 +11,8 @@ packages=(
     ca-certificates
     curl
     golang-go
+    maven
+    openjdk-21-jdk
     stow
     zsh
 )
