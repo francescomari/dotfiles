@@ -7,6 +7,7 @@ repositories=(
 )
 
 packages=(
+    build-essential
     ca-certificates
     curl
     golang-go
