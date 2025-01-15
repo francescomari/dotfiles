@@ -43,12 +43,14 @@ bottles=(
     fd
     fnm
     fx
+    fzf
     git
     gitslave
     gnu-sed
     go
     goreleaser
     hashicorp/tap/vault
+    helix
     helm
     jenv
     jq
@@ -106,6 +108,7 @@ casks=(
 configs=(
     git-base
     git-work
+    helix
     maven
     sh-base
     sh-work
