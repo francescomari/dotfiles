@@ -1,4 +1,5 @@
 [[language]]
 name = "markdown"
 formatter = { command = "dprint", args = ["fmt", "--stdin", "md"]}
+auto-format = true
 
