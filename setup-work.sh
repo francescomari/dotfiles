@@ -38,6 +38,7 @@ bottles=(
     coreutils
     direnv
     dive
+    dprint
     experience-platform/internal/cmcli
     experience-platform/internal/skyline-ops-cli
     fd
@@ -58,6 +59,7 @@ bottles=(
     kubeconform
     kubectx
     lazygit
+    marksman
     maven
     mkcert
     mongodb-atlas-cli
@@ -106,6 +108,7 @@ casks=(
 )
 
 configs=(
+    dprint
     git-base
     git-work
     helix
