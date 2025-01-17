@@ -76,6 +76,7 @@ bottles=(
     ruff
     shellcheck
     stow
+    taplo
     tree
     vim
     watch

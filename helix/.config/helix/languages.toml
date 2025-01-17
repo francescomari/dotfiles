@@ -1,13 +1,16 @@
 [[language]]
 name = "markdown"
-formatter = { command = "dprint", args = ["fmt", "--stdin", "md"]}
+formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
 auto-format = true
 
 [[language]]
 name = "python"
 auto-format = true
-language-servers = [ "pyright", "ruff" ]
+language-servers = ["pyright", "ruff"]
+
+[[language]]
+name = "toml"
+auto-format = true
 
 [language-server.pyright]
 command = "pyright-langserver"
-
