@@ -6,4 +6,8 @@ auto-format = true
 [[language]]
 name = "python"
 auto-format = true
+language-servers = [ "pyright", "ruff" ]
+
+[language-server.pyright]
+command = "pyright-langserver"
 
