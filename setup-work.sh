@@ -72,6 +72,7 @@ bottles=(
     rbenv
     ripgrep
     ruby
+    ruff
     shellcheck
     stow
     tree

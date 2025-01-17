@@ -3,3 +3,7 @@ name = "markdown"
 formatter = { command = "dprint", args = ["fmt", "--stdin", "md"]}
 auto-format = true
 
+[[language]]
+name = "python"
+auto-format = true
+
