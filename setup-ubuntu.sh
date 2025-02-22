@@ -10,7 +10,7 @@ packages=(
     build-essential
     ca-certificates
     curl
-    golang-go
+    golang
     maven
     openjdk-21-jdk
     stow
