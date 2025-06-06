@@ -28,7 +28,6 @@ casks=(
     obsidian
     rectangle
     signal
-    skype
     slack
     spotify
     textual

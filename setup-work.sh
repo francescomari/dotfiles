@@ -100,7 +100,6 @@ casks=(
     obsidian
     rectangle
     signal
-    skype
     spotify
     textual
     visual-studio-code
