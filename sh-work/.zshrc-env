@@ -31,6 +31,10 @@ if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] ; then
     source "$HOME/.sdkman/bin/sdkman-init.sh"
 fi
 
+# Use localhost as the default RMI server. This enables JVMs, JConsole,
+# VisualVM, etc. to properly connect to each other.
+export JAVA_TOOL_OPTIONS='-Djava.rmi.server.hostname=localhost'
+
 # Python
 export PATH="$PATH:/opt/homebrew/opt/python@3.13/libexec/bin"
 
