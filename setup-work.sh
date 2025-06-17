@@ -65,6 +65,8 @@ bottles=(
     node
     operator-sdk
     parallel
+    php
+    postgresql@14
     prometheus
     pyright
     python
@@ -72,6 +74,7 @@ bottles=(
     rbenv
     ripgrep
     ruby
+    ruby-lsp
     ruff
     shellcheck
     stow
