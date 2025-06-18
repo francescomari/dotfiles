@@ -40,3 +40,6 @@ export PATH="$PATH:/opt/homebrew/opt/python@3.13/libexec/bin"
 
 # Ruby
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+# rbenv
+eval "$(rbenv init - --no-rehash zsh)"
