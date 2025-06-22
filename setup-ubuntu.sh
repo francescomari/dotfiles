@@ -13,6 +13,9 @@ packages=(
     golang
     maven
     openjdk-21-jdk
+    python3
+    rbenv
+    ruby
     stow
     zsh
 )
