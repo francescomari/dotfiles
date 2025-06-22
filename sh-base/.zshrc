@@ -3,9 +3,9 @@
 configure_omz() {
     export ZSH="$HOME/.oh-my-zsh"
 
-    export ZSH_THEME="robbyrussell"
+    ZSH_THEME="robbyrussell"
 
-    export plugins=(
+    plugins=(
         git
         golang
     )
