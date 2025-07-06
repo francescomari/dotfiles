@@ -14,7 +14,6 @@ packages=(
     maven
     openjdk-21-jdk
     python3
-    rbenv
     ruby
     stow
     zsh
@@ -90,11 +89,25 @@ install_docker() {
     info 'Run `newgrp docker` to apply the changes'
 }
 
+install_rbenv() {
+    info "Installing rbenv..."
+
+    if command_exists rbenv ; then
+        info "rbenv is already installed"
+        return
+    fi
+
+    if ! curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash ; then
+        fatal "Installation of rbenv failed"
+    fi
+}
+
 parse_flags "$@"
 install_repositories "${repositories[@]}"
 install_packages "${packages[@]}"
 install_nodejs
 install_docker
+install_rbenv
 install_configs "${configs[@]}"
 setup_omz
 print_errors_and_exit
