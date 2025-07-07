@@ -23,6 +23,7 @@ formatter = { command = "rubocop", args = [
   "--fail-level",
   "fatal",
   "--server",
+  "--editor",
 ] }
 
 [language-server.pyright]
