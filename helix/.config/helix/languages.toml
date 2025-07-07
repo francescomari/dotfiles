@@ -12,5 +12,18 @@ language-servers = ["pyright", "ruff"]
 name = "toml"
 auto-format = true
 
+[[language]]
+name = "ruby"
+auto-format = true
+formatter = { command = "rubocop", args = [
+  "--stdin",
+  "input.rb",
+  "--autocorrect",
+  "--stderr",
+  "--fail-level",
+  "fatal",
+  "--server",
+] }
+
 [language-server.pyright]
 command = "pyright-langserver"
