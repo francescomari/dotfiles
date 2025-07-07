@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export COLORTERM=truecolor
+
 # Load credentials, if provided.
 if [ -f "$HOME/credentials.sh" ] ; then
     # shellcheck disable=SC1091

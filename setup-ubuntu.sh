@@ -4,6 +4,7 @@ source lib/setup.sh
 
 repositories=(
     ppa:longsleep/golang-backports
+    ppa:maveonair/helix-editor
 )
 
 packages=(
@@ -11,6 +12,7 @@ packages=(
     ca-certificates
     curl
     golang
+    helix
     maven
     openjdk-21-jdk
     python3
@@ -22,6 +24,7 @@ packages=(
 configs=(
     git-base
     git-home
+    helix
     sh-base
     sh-ubuntu
     vim
