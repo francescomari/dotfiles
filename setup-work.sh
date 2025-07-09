@@ -37,7 +37,6 @@ bottles=(
     coreutils
     direnv
     dive
-    dprint
     experience-platform/internal/cmcli
     experience-platform/internal/skyline-ops-cli
     fd
@@ -50,15 +49,14 @@ bottles=(
     go
     goreleaser
     hashicorp/tap/vault
-    helix
     helm
+    hey
     jenv
     jq
     kind
     kubeconform
     kubectx
     lazygit
-    marksman
     maven
     mkcert
     mongodb-atlas-cli
@@ -68,17 +66,13 @@ bottles=(
     php
     postgresql@14
     prometheus
-    pyright
     python
     python-tk@3.13
     rbenv
     ripgrep
     ruby
-    ruby-lsp
-    ruff
     shellcheck
     stow
-    taplo
     tree
     vim
     watch
@@ -90,9 +84,11 @@ casks=(
     1password
     1password-cli
     alfred
+    cursor
     daisydisk
     discord
     docker
+    docker-desktop
     font-jetbrains-mono
     font-jetbrains-mono-nerd-font
     google-drive
@@ -112,10 +108,8 @@ casks=(
 )
 
 configs=(
-    dprint
     git-base
     git-work
-    helix
     maven
     sh-base
     sh-work
