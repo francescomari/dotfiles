@@ -42,6 +42,11 @@ if [[ -r "${HOME}/.opam/opam-init/init.zsh" ]] ; then
     source /Users/frm/.opam/opam-init/init.zsh  >/dev/null 2>/dev/null
 fi
 
+# Activate mise if it's installed
+if [[ -x "$HOME/.local/bin/mise" ]] ; then
+    eval "$($HOME/.local/bin/mise activate zsh)"
+fi
+
 # Environment-specific stuff
 if [ -f "$HOME/.zshrc-env" ] ; then
     source "$HOME/.zshrc-env"

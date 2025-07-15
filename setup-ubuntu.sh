@@ -102,12 +102,26 @@ install_rbenv() {
     fi
 }
 
+install_mise() {
+    info "Installing mise..."
+
+    if command_exists mise ; then
+        info "mise is already installed"
+        return
+    fi
+
+    if ! curl https://mise.run | sh ; then
+        fatal "Installation of mise failed"
+    fi
+}
+
 parse_flags "$@"
 install_repositories "${repositories[@]}"
 install_packages "${packages[@]}"
 install_nodejs
 install_docker
 install_rbenv
+install_mise
 install_configs "${configs[@]}"
 setup_omz
 print_errors_and_exit
