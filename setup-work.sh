@@ -31,12 +31,14 @@ install_skyline_cli() {
 bottles=(
     azure-cli
     bash
+    bash-language-server
     bats-core
     cloc
     conftest
     coreutils
     direnv
     dive
+    dprint
     experience-platform/internal/cmcli
     experience-platform/internal/skyline-ops-cli
     fd
@@ -49,6 +51,7 @@ bottles=(
     go
     goreleaser
     hashicorp/tap/vault
+    helix
     helm
     heroku/brew/heroku
     hey
@@ -58,6 +61,7 @@ bottles=(
     kubeconform
     kubectx
     lazygit
+    marksman
     maven
     mise
     mkcert
@@ -73,6 +77,7 @@ bottles=(
     rbenv
     ripgrep
     ruby
+    ruff
     shellcheck
     stow
     tree
@@ -110,8 +115,10 @@ casks=(
 )
 
 configs=(
+    dprint
     git-base
     git-work
+    helix
     maven
     sh-base
     sh-work
