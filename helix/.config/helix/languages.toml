@@ -7,3 +7,7 @@ auto-format = true
 name = "toml"
 formatter = { command = "dprint", args = ["fmt", "--stdin", "toml"] }
 auto-format = true
+
+[[language]]
+name = "python"
+auto-format = true
