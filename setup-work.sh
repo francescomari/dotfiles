@@ -50,6 +50,7 @@ bottles=(
     goreleaser
     hashicorp/tap/vault
     helm
+    heroku/brew/heroku
     hey
     jenv
     jq
@@ -58,6 +59,7 @@ bottles=(
     kubectx
     lazygit
     maven
+    mise
     mkcert
     mongodb-atlas-cli
     node
