@@ -8,6 +8,9 @@ if [ -f "$HOME/credentials.sh" ] ; then
     . "$HOME/credentials.sh"
 fi
 
+# dprint
+export PATH="$HOME/.dprint/bin:$PATH"
+
 # Python
 alias python=python3
 

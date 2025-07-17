@@ -115,6 +115,19 @@ install_mise() {
     fi
 }
 
+install_dprint() {
+    info "Installing dprint..."
+
+    if command_exists dprint ; then
+        info "dprint is already instealled"
+        return
+    fi
+
+    if ! curl -fsSL https://dprint.dev/install.sh | sh ; then
+        fatal "Installation of dprint failed"
+    fi
+}
+
 parse_flags "$@"
 install_repositories "${repositories[@]}"
 install_packages "${packages[@]}"
