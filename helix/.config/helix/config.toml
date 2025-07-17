@@ -1,2 +1,4 @@
+theme = "darcula"
+
 [editor.file-picker]
 hidden = false
