@@ -54,11 +54,6 @@ install_packages() {
 install_nodejs() {
     info "Installing Node.js..."
 
-    if commands_exist node npm ; then
-        info 'Node.js is already installed'
-        return
-    fi
-
     if ! curl -sL https://deb.nodesource.com/setup_current.x | sudo -E bash - ; then
         fatal 'Adding Node.js repository failed'
     fi
