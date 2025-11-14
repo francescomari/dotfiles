@@ -122,6 +122,7 @@ configs=(
     maven
     sh-base
     sh-work
+    ssh-work
     vim
 )
 
