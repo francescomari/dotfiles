@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Profiliing: uncomment this line.
+# zmodload zsh/zprof
+
 configure_omz() {
     export ZSH="$HOME/.oh-my-zsh"
 
@@ -51,3 +54,9 @@ fi
 if [ -f "$HOME/.zshrc-env" ] ; then
     source "$HOME/.zshrc-env"
 fi
+
+# Profiling: uncomment this line.
+# zprof
+
+# For profiling data, run:
+# time zsh -i -c exit
