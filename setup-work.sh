@@ -98,6 +98,7 @@ casks=(
     docker-desktop
     font-jetbrains-mono
     font-jetbrains-mono-nerd-font
+    ghostty
     google-drive
     iterm2
     jetbrains-toolbox
