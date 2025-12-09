@@ -69,6 +69,16 @@ require_homebrew() {
     fi
 }
 
+install_brewfile() {
+    local brewfile="$1"
+
+    info "Installing Brewfile '$brewfile'"
+
+    if ! brew bundle --file="$brewfile" ; then
+        error "Installation of Brewfile '$brewfile' failed"
+    fi
+}
+
 install_tap_with_url() {
     info "Installing Homebrew tap '$1'"
 
