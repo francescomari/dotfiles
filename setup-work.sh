@@ -31,6 +31,7 @@ configs=(
 parse_flags "$@"
 require_homebrew
 install_brewfile Brewfile.work
+check_unmanaged_brewfile Brewfile.work
 install_skyline_cli
 install_configs "${configs[@]}"
 setup_omz

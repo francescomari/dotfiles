@@ -79,6 +79,16 @@ install_brewfile() {
     fi
 }
 
+check_unmanaged_brewfile() {
+    local brewfile="$1"
+
+    info "Checking for unmanaged packages..."
+
+    if ! brew bundle cleanup --file="$brewfile" ; then
+        warn "There are unmanaged dependencies. Run 'brew bundle cleanup --file=$brewfile' for details."
+    fi
+}
+
 install_tap_with_url() {
     info "Installing Homebrew tap '$1'"
 
