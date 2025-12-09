@@ -51,18 +51,6 @@ command_exists() {
     command -v "$1" > /dev/null 2>&1
 }
 
-commands_exist() {
-    local c
-
-    for c in "$@" ; do
-        if ! command_exists "$c" ; then
-            return 1
-        fi
-    done
-
-    return 0
-}
-
 require_homebrew() {
     if ! command_exists brew ; then
         fatal 'Install Homebrew first. Follow the instructions at https://brew.sh/'
@@ -87,76 +75,6 @@ check_unmanaged_brewfile() {
     if ! brew bundle cleanup --file="$brewfile" ; then
         warn "There are unmanaged dependencies. Run 'brew bundle cleanup --file=$brewfile' for details."
     fi
-}
-
-install_tap_with_url() {
-    info "Installing Homebrew tap '$1'"
-
-    if ! brew tap "$1" "$2" ; then
-        error "Installation of Homebrew tap '$1' failed"
-    fi
-}
-
-install_bottles() {
-    info 'Installing Homebrew bottles...'
-
-    for i in  "$@" ; do
-        if  brew list "$i" ; then
-            info "Homebrew bottle '$i' already installed"
-            continue
-        fi
-
-        info "Installing Homebrew bottle '$i'"
-
-        if ! brew install "$i" ; then
-            error "Installation of Homebrew bottle '$i' failed"
-        fi
-    done
-}
-
-check_unmanaged_bottles() {
-    info 'Checking for unmanaged bottles...'
-
-    for i in $(brew leaves -r) ; do
-        for j in "$@" ; do
-            if [ "$i" == "$j" ] ; then
-                continue 2
-            fi
-        done
-
-        warn "Bottle '${i}' is not managed by configuration"
-    done
-}
-
-install_casks() {
-    info 'Installing Homebrew casks...'
-
-    for i in "$@" ; do
-        if brew list --cask "$i" ; then
-            info "Homebrew cask '$i' already installed"
-            continue
-        fi
-
-        info "Installing Homebrew cask '$i'"
-
-        if ! brew install --cask "$i" ; then
-            error "Installation of Homebrew cask '$i' failed"
-        fi
-    done
-}
-
-check_unmanaged_casks() {
-    info 'Checking for unmanaged casks...'
-
-    for i in $(brew list --cask) ; do
-        for j in "$@" ; do
-            if [ "$i" == "${j##*/}" ] ; then
-                continue 2
-            fi
-        done
-
-        warn "Cask '${i}' is not managed by configuration"
-    done
 }
 
 install_configs() {
