@@ -32,7 +32,7 @@ if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] ; then
 fi
 
 # Python
-export PATH="$PATH:/opt/homebrew/opt/python@3.13/libexec/bin"
+export PATH="$PATH:/opt/homebrew/opt/python@3.14/libexec/bin"
 
 # Ruby
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"

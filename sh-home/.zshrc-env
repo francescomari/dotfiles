@@ -4,7 +4,7 @@
 export HOMEBREW_NO_ENV_HINTS=1
 
 # Python
-export PATH="$PATH:/usr/local/opt/python@3.12/libexec/bin"
+export PATH="$PATH:/usr/local/opt/python@3.14/libexec/bin"
 
 # Load credentials, if provided.
 if [ -f "$HOME/credentials.sh" ] ; then
