@@ -17,5 +17,11 @@ alias python=python3.14
 # System-wide Python packages
 export PATH="$HOME/.local/bin:$PATH"
 
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# Snap
+export PATH="/snap/bin:$PATH"
+
+# SDKMAN!
+if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] ; then
+    export SDKMAN_DIR="$HOME/.sdkman"
+    source "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
