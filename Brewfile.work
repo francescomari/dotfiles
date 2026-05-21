@@ -1,10 +1,8 @@
-tap "aserto-dev/tap"
 tap "experience-platform/homebrew-internal", "git@git.corp.adobe.com:experience-platform/homebrew-internal.git"
 tap "hashicorp/tap"
 tap "heroku/brew"
 tap "mongodb/brew"
 
-brew "aserto-dev/tap/topaz"
 brew "azure-cli"
 brew "bash-language-server"
 brew "bash"
