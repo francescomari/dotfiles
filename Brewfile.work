@@ -1,7 +1,7 @@
-tap "experience-platform/homebrew-internal", "git@git.corp.adobe.com:experience-platform/homebrew-internal.git"
-tap "hashicorp/tap"
-tap "heroku/brew"
-tap "mongodb/brew"
+tap "experience-platform/homebrew-internal", "git@git.corp.adobe.com:experience-platform/homebrew-internal.git", trusted: true
+tap "hashicorp/tap", trusted: true
+tap "heroku/brew", trusted: true
+tap "mongodb/brew", trusted: true
 
 brew "azure-cli"
 brew "bash"
