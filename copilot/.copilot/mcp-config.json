@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "mcp-atlassian": {
+      "type": "local",
+      "command": "uvx",
+      "args": [
+        "mcp-atlassian"
+      ],
+      "env": {
+        "JIRA_URL": "$JIRA_URL",
+        "JIRA_PERSONAL_TOKEN": "$JIRA_PERSONAL_TOKEN",
+        "CONFLUENCE_URL": "$CONFLUENCE_URL",
+        "CONFLUENCE_PERSONAL_TOKEN": "$CONFLUENCE_PERSONAL_TOKEN"
+      },
+      "tools": [
+        "*"
+      ]
+    }
+  }
+}

@@ -17,6 +17,7 @@ install_skyline_cli() {
 }
 
 configs=(
+    copilot
     dprint
     git-base
     git-work
