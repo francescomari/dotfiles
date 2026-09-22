@@ -60,3 +60,8 @@ fi
 
 # For profiling data, run:
 # time zsh -i -c exit
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/frm/.lmstudio/bin"
+# End of LM Studio CLI section
+
