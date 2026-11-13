@@ -10,3 +10,6 @@ password_keyring = true
 
 [preview]
 enabled = false
+
+[font]
+size = 17
