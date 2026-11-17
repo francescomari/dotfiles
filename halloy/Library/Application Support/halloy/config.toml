@@ -2,7 +2,14 @@
 server = "irc.libera.chat"
 use_tls = true
 nickname = "frm"
-channels = ["##programming", "#go-nuts", "#python", "#gemini", "#gemini-it"]
+channels = [
+  "##programming",
+  "#go-nuts",
+  "#python",
+  "#gemini",
+  "#gemini-it",
+  "#italia",
+]
 
 [servers.Libera.sasl.plain]
 username = "frm"
